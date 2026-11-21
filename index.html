@@ -161,15 +161,18 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .shot.big .cap .tag{margin-bottom:8px}
 .shot.big .cap b{font-family:'Anton',sans-serif;font-weight:400;font-size:1.4rem;letter-spacing:.01em}
 
-/* Filter: গ্যালারি দেখার সময় উপরে আটকে থাকে (sticky); .d-browse শেষ হলে সরে যায়।
-   desktop-এ উপরের nav-এর নিচে (top:84px); মোবাইলে গোল ফ্রেমের ভেতরে, এক সারিতে পাশে স্ক্রল */
+/* Filter: .fwrap গ্যালারি দেখার সময় উপরে আটকে থাকে (sticky); .d-browse শেষ হলে সরে যায়।
+   desktop-এ উপরের nav-এর নিচে (top:84px); মোবাইলে গোল ফ্রেমে এক সারিতে পাশে স্ক্রল,
+   দুই পাশে তীর (.farr) — যেদিকে আরও tab আছে শুধু সেদিকেরটা দেখায় */
 .d-browse{position:relative}
-.filters{position:sticky;top:84px;z-index:50;display:flex;flex-wrap:wrap;gap:8px;margin:0 -28px 20px;padding:12px 28px;background:rgba(14,34,0,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.fwrap{position:sticky;top:84px;z-index:50;margin:0 -28px 20px;padding:12px 28px;background:rgba(14,34,0,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.filters{position:relative;display:flex;flex-wrap:wrap;gap:8px}
 .fbtn{flex-shrink:0;white-space:nowrap;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:var(--pill);border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;transition:.2s}
 .fbtn:hover{color:var(--green);border-color:rgba(158,232,107,.4)}
 .fbtn.on{background:var(--green);color:var(--darkest);border-color:var(--green)}
 .fbtn .n{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:var(--pill);background:rgba(158,232,107,.12);font-size:.6rem}
 .fbtn.on .n{background:rgba(9,21,0,.15)}
+.farr{display:none}
 
 /* Justified gallery: প্রতিটি সারির উচ্চতা সমান, কাজগুলো বাম→ডান ক্রমে, প্রতিটি ছবি নিজের অনুপাতে পুরোটা।
    --r  = প্রস্থ ÷ উচ্চতা (দশমিকে, যেমন 1.5); আসল ছবি লোড হলে স্ক্রিপ্ট নিজে মেপে বসায়
@@ -322,13 +325,23 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
   .cta{grid-column:auto}
   .photo{min-height:300px}
   .marquee span{font-size:1.9rem;padding:0 16px}
-  /* মোবাইলে filter: গোল (pill) ফ্রেমের ভেতরে এক সারিতে, আঙুল দিয়ে পাশে টানা যায়;
-     উপর থেকে 10px নিচে আটকে থাকে; ভেতরের tab-এ বর্ডার নেই, শুধু চাপা tab সবুজ */
-  .filters{top:10px;flex-wrap:nowrap;overflow-x:auto;gap:4px;margin:0 0 14px;padding:5px;border:1px solid rgba(158,232,107,.22);border-radius:var(--pill);background:rgba(14,34,0,.94);box-shadow:0 8px 24px rgba(0,0,0,.35);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  /* মোবাইলে filter: গোল (pill) ফ্রেম, উপর থেকে 10px নিচে আটকে থাকে */
+  .fwrap{top:10px;margin:0 0 14px;padding:0;border:1px solid rgba(158,232,107,.22);border-radius:var(--pill);background:rgba(14,34,0,.94);box-shadow:0 8px 24px rgba(0,0,0,.35);overflow:hidden}
+  /* ভেতরে এক সারিতে tab, আঙুল দিয়ে পাশে টানা যায়; tab-এ বর্ডার নেই, শুধু চাপা tab সবুজ */
+  .filters{flex-wrap:nowrap;overflow-x:auto;gap:4px;padding:5px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .filters::-webkit-scrollbar{display:none}
   .fbtn{padding:8px 14px;border-color:transparent}
   .fbtn:hover{border-color:transparent}
   .fbtn.on{border-color:var(--green)}
+  /* দুই পাশের তীর: পেছনে fade, যেদিকে আরও tab আছে শুধু সেদিকেরটা দেখায় (স্ক্রিপ্ট can-l / can-r বসায়) */
+  .farr{display:flex;align-items:center;position:absolute;top:0;bottom:0;z-index:2;width:46px;padding:0 6px;border:0;background:none;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}
+  .farr.l{left:0;justify-content:flex-start;background:linear-gradient(90deg,#0e2200 50%,rgba(14,34,0,0))}
+  .farr.r{right:0;justify-content:flex-end;background:linear-gradient(270deg,#0e2200 50%,rgba(14,34,0,0))}
+  .farr i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--card);border:1px solid rgba(158,232,107,.35);color:var(--green);font-style:normal;font-size:1rem;line-height:1}
+  .fwrap.can-l .farr.l,.fwrap.can-r .farr.r{opacity:1;pointer-events:auto}
+  /* প্রথমবার দেখা গেলে ডান তীর দুবার হালকা নড়ে */
+  .fwrap.hint .farr.r i{animation:nudge .7s ease-in-out 2}
+  @keyframes nudge{50%{transform:translateX(4px)}}
   .gallery{--rh:130px;gap:10px}
   .shot .cap{padding:8px 10px 10px}
   .shot .cap b{font-size:.78rem}
@@ -533,15 +546,20 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
 
   <!-- Filter + গ্যালারি একসাথে: গ্যালারি দেখার সময় filter উপরে আটকে থাকে -->
   <div class="d-browse">
-  <!-- বাটনের পাশের সংখ্যা স্ক্রিপ্ট নিজে গুনে বসায় -->
-  <div class="filters" role="group" aria-label="Filter design work">
-    <button class="fbtn on" data-f="all" aria-pressed="true">All</button>
-    <button class="fbtn" data-f="creative" aria-pressed="false">Creative</button>
-    <button class="fbtn" data-f="branding" aria-pressed="false">Branding</button>
-    <button class="fbtn" data-f="flyer" aria-pressed="false">Flyers &amp; Banners</button>
-    <button class="fbtn" data-f="print" aria-pressed="false">Print &amp; Packaging</button>
-    <button class="fbtn" data-f="profile" aria-pressed="false">Company Profiles</button>
-    <button class="fbtn" data-f="motion" aria-pressed="false">UI &amp; Motion</button>
+  <div class="fwrap">
+    <!-- বাটনের পাশের সংখ্যা স্ক্রিপ্ট নিজে গুনে বসায় -->
+    <div class="filters" role="group" aria-label="Filter design work">
+      <button class="fbtn on" data-f="all" aria-pressed="true">All</button>
+      <button class="fbtn" data-f="creative" aria-pressed="false">Creative</button>
+      <button class="fbtn" data-f="branding" aria-pressed="false">Branding</button>
+      <button class="fbtn" data-f="flyer" aria-pressed="false">Flyers &amp; Banners</button>
+      <button class="fbtn" data-f="print" aria-pressed="false">Print &amp; Packaging</button>
+      <button class="fbtn" data-f="profile" aria-pressed="false">Company Profiles</button>
+      <button class="fbtn" data-f="motion" aria-pressed="false">UI &amp; Motion</button>
+    </div>
+    <!-- মোবাইলের তীর: যেদিকে আরও tab আছে সেদিকেরটা দেখায় -->
+    <button class="farr l" type="button" aria-label="Show previous categories"><i>‹</i></button>
+    <button class="farr r" type="button" aria-label="Show more categories"><i>›</i></button>
   </div>
 
   <div class="gallery fade-up" data-group>
@@ -885,7 +903,7 @@ document.querySelectorAll('.shot').forEach(s=>{
 
 /* Design: filter + প্রতিটি বাটনে সংখ্যা (কাজ না থাকলে বাটন লুকায়) */
 const mShots=document.querySelectorAll('.gallery .shot'),fbtns=document.querySelectorAll('.fbtn'),
-      fbar=document.querySelector('.filters'),gal=document.querySelector('.gallery');
+      fwrap=document.querySelector('.fwrap'),fbar=document.querySelector('.filters'),gal=document.querySelector('.gallery');
 fbtns.forEach(b=>{
   const f=b.dataset.f;
   const n=f==='all'?mShots.length:[...mShots].filter(s=>s.dataset.cat===f).length;
@@ -897,12 +915,26 @@ fbtns.forEach(b=>b.addEventListener('click',()=>{
   const f=b.dataset.f;
   mShots.forEach(s=>s.classList.toggle('hide',f!=='all'&&s.dataset.cat!==f));
   /* নিচে থাকলে গ্যালারির শুরুতে ফিরে যায় */
-  const top=parseFloat(getComputedStyle(fbar).top)||0;
-  const y=gal.getBoundingClientRect().top+window.scrollY-fbar.offsetHeight-top-8;
+  const top=parseFloat(getComputedStyle(fwrap).top)||0;
+  const y=gal.getBoundingClientRect().top+window.scrollY-fwrap.offsetHeight-top-8;
   if(window.scrollY>y)window.scrollTo({top:y,behavior:'smooth'});
   /* মোবাইলে চাপা বাটন সারির মাঝখানে আনে */
   fbar.scrollTo({left:b.offsetLeft-(fbar.clientWidth-b.offsetWidth)/2,behavior:'smooth'});
 }));
+
+/* Filter-এর দুই পাশের তীর: যেদিকে আরও tab আছে শুধু সেদিকেরটা দেখায়; চাপলে সেদিকে সরে */
+function updArrows(){
+  const max=fbar.scrollWidth-fbar.clientWidth;
+  fwrap.classList.toggle('can-l',fbar.scrollLeft>4);
+  fwrap.classList.toggle('can-r',fbar.scrollLeft<max-4);
+}
+fbar.addEventListener('scroll',updArrows,{passive:true});
+window.addEventListener('resize',updArrows);
+updArrows();
+document.querySelector('.farr.l').addEventListener('click',()=>fbar.scrollBy({left:-fbar.clientWidth*.6,behavior:'smooth'}));
+document.querySelector('.farr.r').addEventListener('click',()=>fbar.scrollBy({left:fbar.clientWidth*.6,behavior:'smooth'}));
+/* প্রথমবার filter চোখে পড়লে ডান তীর দুবার হালকা নড়ে */
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){fwrap.classList.add('hint');o.disconnect()}},{threshold:1}).observe(fwrap);
 
 /* Design: উপরের সংখ্যা */
 const setN=(id,n)=>{const el=document.getElementById(id);if(el)el.textContent=n};
