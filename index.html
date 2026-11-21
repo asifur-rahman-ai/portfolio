@@ -162,7 +162,7 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .shot.big .cap b{font-family:'Anton',sans-serif;font-weight:400;font-size:1.4rem;letter-spacing:.01em}
 
 /* Filter: গ্যালারি দেখার সময় উপরে আটকে থাকে (sticky); .d-browse শেষ হলে সরে যায়।
-   desktop-এ উপরের nav-এর নিচে (top:84px), মোবাইলে একদম উপরে, এক সারিতে পাশে স্ক্রল */
+   desktop-এ উপরের nav-এর নিচে (top:84px); মোবাইলে গোল ফ্রেমের ভেতরে, এক সারিতে পাশে স্ক্রল */
 .d-browse{position:relative}
 .filters{position:sticky;top:84px;z-index:50;display:flex;flex-wrap:wrap;gap:8px;margin:0 -28px 20px;padding:12px 28px;background:rgba(14,34,0,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .fbtn{flex-shrink:0;white-space:nowrap;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:var(--pill);border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;transition:.2s}
@@ -322,10 +322,13 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
   .cta{grid-column:auto}
   .photo{min-height:300px}
   .marquee span{font-size:1.9rem;padding:0 16px}
-  /* মোবাইলে filter এক সারিতে, আঙুল দিয়ে পাশে টানা যায়; স্ক্রিনের উপরে আটকে থাকে */
-  .filters{top:0;flex-wrap:nowrap;overflow-x:auto;margin:0 -20px 14px;padding:10px 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  /* মোবাইলে filter: গোল (pill) ফ্রেমের ভেতরে এক সারিতে, আঙুল দিয়ে পাশে টানা যায়;
+     উপর থেকে 10px নিচে আটকে থাকে; ভেতরের tab-এ বর্ডার নেই, শুধু চাপা tab সবুজ */
+  .filters{top:10px;flex-wrap:nowrap;overflow-x:auto;gap:4px;margin:0 0 14px;padding:5px;border:1px solid rgba(158,232,107,.22);border-radius:var(--pill);background:rgba(14,34,0,.94);box-shadow:0 8px 24px rgba(0,0,0,.35);scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .filters::-webkit-scrollbar{display:none}
-  .fbtn{padding:9px 14px}
+  .fbtn{padding:8px 14px;border-color:transparent}
+  .fbtn:hover{border-color:transparent}
+  .fbtn.on{border-color:var(--green)}
   .gallery{--rh:130px;gap:10px}
   .shot .cap{padding:8px 10px 10px}
   .shot .cap b{font-size:.78rem}
