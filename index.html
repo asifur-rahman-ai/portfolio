@@ -161,9 +161,11 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .shot.big .cap .tag{margin-bottom:8px}
 .shot.big .cap b{font-family:'Anton',sans-serif;font-weight:400;font-size:1.4rem;letter-spacing:.01em}
 
-/* Filter */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.fbtn{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:var(--pill);border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;transition:.2s}
+/* Filter: গ্যালারি দেখার সময় উপরে আটকে থাকে (sticky); .d-browse শেষ হলে সরে যায়।
+   desktop-এ উপরের nav-এর নিচে (top:84px), মোবাইলে একদম উপরে, এক সারিতে পাশে স্ক্রল */
+.d-browse{position:relative}
+.filters{position:sticky;top:84px;z-index:50;display:flex;flex-wrap:wrap;gap:8px;margin:0 -28px 20px;padding:12px 28px;background:rgba(14,34,0,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.fbtn{flex-shrink:0;white-space:nowrap;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:var(--pill);border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;transition:.2s}
 .fbtn:hover{color:var(--green);border-color:rgba(158,232,107,.4)}
 .fbtn.on{background:var(--green);color:var(--darkest);border-color:var(--green)}
 .fbtn .n{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:var(--pill);background:rgba(158,232,107,.12);font-size:.6rem}
@@ -320,6 +322,10 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
   .cta{grid-column:auto}
   .photo{min-height:300px}
   .marquee span{font-size:1.9rem;padding:0 16px}
+  /* মোবাইলে filter এক সারিতে, আঙুল দিয়ে পাশে টানা যায়; স্ক্রিনের উপরে আটকে থাকে */
+  .filters{top:0;flex-wrap:nowrap;overflow-x:auto;margin:0 -20px 14px;padding:10px 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .filters::-webkit-scrollbar{display:none}
+  .fbtn{padding:9px 14px}
   .gallery{--rh:130px;gap:10px}
   .shot .cap{padding:8px 10px 10px}
   .shot .cap b{font-size:.78rem}
@@ -522,6 +528,8 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
       <span class="cap"><span class="tag">Featured · Stationery</span><b>Office stationery design</b><small>Letterhead, cards and envelope</small></span></button>
   </div>
 
+  <!-- Filter + গ্যালারি একসাথে: গ্যালারি দেখার সময় filter উপরে আটকে থাকে -->
+  <div class="d-browse">
   <!-- বাটনের পাশের সংখ্যা স্ক্রিপ্ট নিজে গুনে বসায় -->
   <div class="filters" role="group" aria-label="Filter design work">
     <button class="fbtn on" data-f="all" aria-pressed="true">All</button>
@@ -609,6 +617,7 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
       <span class="im"><img src="images/design/video-coxs-bazar.jpg" alt="Cox's Bazar tour video" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
       <span class="cap"><b>Cox's Bazar tour video</b><small>Video editing</small></span></button>
   </div>
+  </div><!-- /d-browse -->
 
   <!-- From Screen to Print: Design Printed ফোল্ডারের ১৩টি ছবি, ৯টি কাজে।
        প্রথম কাজের class "lead" = বড় ঘর। একাধিক ছবি থাকলে data-more -->
@@ -812,7 +821,8 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
     </div>
     <div class="c-links fade-up">
       <a class="cl" href="mailto:asifctg94@gmail.com"><div><small>Email</small><span>asifctg94@gmail.com</span></div><i>↗</i></a>
-      <a class="cl" href="tel:+8801821304262"><div><small>Phone</small><span>+880 1821 304 262</span></div><i>↗</i></a>
+      <!-- WhatsApp: wa.me/ এর পরে দেশের কোডসহ নম্বর, + বা ফাঁকা ছাড়া -->
+      <a class="cl" href="https://wa.me/8801821304262" target="_blank" rel="noopener"><div><small>WhatsApp</small><span>+880 1821 304 262</span></div><i>↗</i></a>
       <a class="cl" href="https://www.linkedin.com/in/md-asifur-rahman-a955a9197/" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>md-asifur-rahman</span></div><i>↗</i></a>
       <a class="cl" href="https://github.com/asifur-rahman-ai" target="_blank" rel="noopener"><div><small>GitHub</small><span>asifur-rahman-ai</span></div><i>↗</i></a>
       <a class="cl" href="cv-md-asifur-rahman.pdf" download><div><small>CV</small><span>Download PDF (2 pages)</span></div><i>↓</i></a>
@@ -871,7 +881,8 @@ document.querySelectorAll('.shot').forEach(s=>{
 });
 
 /* Design: filter + প্রতিটি বাটনে সংখ্যা (কাজ না থাকলে বাটন লুকায়) */
-const mShots=document.querySelectorAll('.gallery .shot'),fbtns=document.querySelectorAll('.fbtn');
+const mShots=document.querySelectorAll('.gallery .shot'),fbtns=document.querySelectorAll('.fbtn'),
+      fbar=document.querySelector('.filters'),gal=document.querySelector('.gallery');
 fbtns.forEach(b=>{
   const f=b.dataset.f;
   const n=f==='all'?mShots.length:[...mShots].filter(s=>s.dataset.cat===f).length;
@@ -882,6 +893,12 @@ fbtns.forEach(b=>b.addEventListener('click',()=>{
   fbtns.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});
   const f=b.dataset.f;
   mShots.forEach(s=>s.classList.toggle('hide',f!=='all'&&s.dataset.cat!==f));
+  /* নিচে থাকলে গ্যালারির শুরুতে ফিরে যায় */
+  const top=parseFloat(getComputedStyle(fbar).top)||0;
+  const y=gal.getBoundingClientRect().top+window.scrollY-fbar.offsetHeight-top-8;
+  if(window.scrollY>y)window.scrollTo({top:y,behavior:'smooth'});
+  /* মোবাইলে চাপা বাটন সারির মাঝখানে আনে */
+  fbar.scrollTo({left:b.offsetLeft-(fbar.clientWidth-b.offsetWidth)/2,behavior:'smooth'});
 }));
 
 /* Design: উপরের সংখ্যা */
