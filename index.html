@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Md. Asifur Rahman — Digital Solutions Engineer</title>
-<meta name="description" content="Md. Asifur Rahman — Digital Solutions Engineer in Chattogram, Bangladesh. Web development, IT infrastructure, Microsoft 365, AI-assisted internal tools and brand design.">
+<meta name="description" content="Md. Asifur Rahman — Digital Solutions Engineer in Chattogram, Bangladesh. Agentic AI workflows, web development, IT infrastructure, Microsoft 365, internal tools and brand design.">
 <link rel="canonical" href="https://asifur-rahman-ai.github.io/portfolio/">
 <meta property="og:title" content="Md. Asifur Rahman — Digital Solutions Engineer">
-<meta property="og:description" content="Websites, internal business tools, IT systems and brand design, built with AI-assisted development.">
+<meta property="og:description" content="Websites, internal business tools, IT systems and brand design, built with agentic AI and AI-assisted development.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://asifur-rahman-ai.github.io/portfolio/">
 <meta name="theme-color" content="#091500">
@@ -24,7 +24,7 @@ html{scroll-behavior:smooth}
 body{background:var(--darkest);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade-up{opacity:1!important;transform:none!important}.tl-bar{transform:none!important}.ring .fg{stroke-dasharray:calc(var(--lvl) - 3.6) 100!important}.lang-bar i{width:var(--w)!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.fade-up{opacity:1!important;transform:none!important}.tl-bar{transform:none!important}.ring .fg{stroke-dasharray:calc(var(--lvl) - 3.6) 100!important}.lang-bar i{width:var(--w)!important}}
 
 /* NAV */
 nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;background:rgba(23,51,0,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:var(--pill);padding:8px 8px 8px 24px;white-space:nowrap}
@@ -52,8 +52,6 @@ h2 em{color:var(--green);font-style:normal}
 .card:hover{transform:translateY(-3px);border-color:rgba(158,232,107,.3)}
 .tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.62rem;padding:4px 11px;border-radius:var(--pill);background:rgba(158,232,107,.08);border:1px solid var(--line);color:var(--green);letter-spacing:.05em}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.link{display:inline-block;margin-top:16px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
-.link:hover{border-color:var(--green)}
 
 /* HERO */
 #hero{padding-top:120px;padding-bottom:48px}
@@ -64,15 +62,17 @@ h2 em{color:var(--green);font-style:normal}
 .loc{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--muted);letter-spacing:.1em}
 h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(3rem,8.5vw,7rem);line-height:.95;margin:18px 0 12px;color:var(--white)}
 h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
-.tagline{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--dim);max-width:720px;margin-bottom:28px}
+.tagline{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--dim);max-width:740px;margin-bottom:28px}
 .tagline b{color:var(--white);font-weight:500}
+.tagline em{font-style:normal;color:var(--green);font-weight:500}
 .hero-grid{display:grid;grid-template-columns:1fr 2fr 1fr;gap:16px}
 .photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);background:var(--card);min-height:340px}
-/* মুখ ছবির মাঝখান থেকে একটু ডানে, তাই x = 60% */
-.photo img{width:100%;height:100%;object-fit:cover;object-position:60% 20%;display:block}
+/* নতুন পাসপোর্ট-ধাঁচের ছবি: মুখ মাঝখানে, উপরের দিকে, তাই 50% 15% */
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
 /* ছবি না পেলে বক্সে ফাইলের নাম দেখায় */
 .photo.missing img{display:none}
 .photo.missing::before{content:'images/asifur.jpg';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted)}
+/* চারটি stat বক্স: সবগুলোর নকশা ও ফন্ট একই */
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;justify-content:flex-end}
 .stat b{font-family:'Anton',sans-serif;font-weight:400;font-size:2.6rem;color:var(--green);line-height:1}
@@ -121,10 +121,27 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 /* PROJECTS */
 .sub{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.proj{display:flex;flex-direction:column;text-decoration:none}
+.proj{display:flex;flex-direction:column;text-decoration:none;overflow:hidden;cursor:pointer}
 .proj h3{font-size:1.08rem;font-weight:700;color:var(--white);margin:12px 0 6px}
 .proj p{font-size:.86rem;color:var(--dim);flex:1}
-.proj .go{margin-top:14px;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.proj .tag{align-self:flex-start}
+
+/* Live demo বোঝানো: কার্ডের মাথায় ছোট ব্রাউজার-বার (ঠিকানা স্ক্রিপ্ট নিজে বসায়)
+   + নিচে pill বাটন, তীর মাঝে মাঝে ↗ দিকে নড়ে, বাটনে আলোর ঝিলিক যায় */
+.win{display:flex;align-items:center;gap:6px;margin:-28px -28px 18px;padding:10px 14px;background:var(--card2);border-bottom:1px solid var(--line)}
+.win i{width:8px;height:8px;border-radius:50%;background:rgba(158,232,107,.22);flex-shrink:0}
+.win .url{flex:1;min-width:0;margin-left:6px;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);background:rgba(9,21,0,.55);border:1px solid var(--line);border-radius:var(--pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .2s}
+.win .live{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);flex-shrink:0}
+.win .live .pulse{width:6px;height:6px}
+.proj:hover .win .url{color:var(--green)}
+
+.go{align-self:flex-start;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:9px 16px;border-radius:var(--pill);border:1px solid rgba(158,232,107,.38);background:rgba(158,232,107,.08);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.go .arr{display:inline-block;animation:nudge 2.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.go::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(90deg,transparent,rgba(240,253,228,.28),transparent);transform:skewX(-20deg);animation:shine 3.8s ease-in-out infinite;animation-delay:var(--d,0s);pointer-events:none}
+.go:hover,.proj:hover .go{background:var(--green);color:var(--darkest);border-color:var(--green)}
+@keyframes nudge{0%,55%,100%{transform:translate(0,0)}65%{transform:translate(3px,-3px)}75%{transform:translate(0,0)}85%{transform:translate(3px,-3px)}}
+@keyframes shine{0%,50%{left:-60%}80%,100%{left:130%}}
+.feat .go{margin-top:20px}
 
 /* ===== DESIGN WORK ===== */
 .d-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
@@ -161,13 +178,18 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .shot.big .cap .tag{margin-bottom:8px}
 .shot.big .cap b{font-family:'Anton',sans-serif;font-weight:400;font-size:1.4rem;letter-spacing:.01em}
 
-/* Filter: গ্যালারি দেখার সময় উপরে আটকে থাকে (sticky); .d-browse শেষ হলে সরে যায়।
-   desktop-এ উপরের nav-এর নিচে (top:84px); মোবাইলে গোল ফ্রেমের ভেতরে, এক সারিতে পাশে স্ক্রল */
+/* Filter: উপরের nav-এর মতো গোল, ঝাপসা কাচের pill, একটু গ্লসি; এক সারিতে মাঝখানে।
+   গ্যালারি দেখার সময় উপরে আটকে থাকে (sticky); desktop-এ nav-এর নিচে (top:84px) */
 .d-browse{position:relative}
-.filters{position:sticky;top:84px;z-index:50;display:flex;flex-wrap:wrap;gap:8px;margin:0 -28px 20px;padding:12px 28px;background:rgba(14,34,0,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.fbtn{flex-shrink:0;white-space:nowrap;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:var(--pill);border:1px solid var(--line);background:transparent;color:var(--dim);cursor:pointer;transition:.2s}
-.fbtn:hover{color:var(--green);border-color:rgba(158,232,107,.4)}
-.fbtn.on{background:var(--green);color:var(--darkest);border-color:var(--green)}
+.filters{position:sticky;top:84px;z-index:50;display:flex;flex-wrap:nowrap;gap:2px;width:fit-content;max-width:100%;margin:0 auto 22px;padding:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0) 55%),rgba(23,51,0,.72);
+  backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+  border:1px solid rgba(158,232,107,.2);border-radius:var(--pill);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 10px 30px rgba(0,0,0,.35)}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{flex-shrink:0;white-space:nowrap;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:var(--pill);border:0;background:transparent;color:var(--dim);cursor:pointer;transition:.2s}
+.fbtn:hover{background:rgba(158,232,107,.12);color:var(--green)}
+.fbtn.on{background:linear-gradient(180deg,#b6f28c,var(--green));color:var(--darkest);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 2px 10px rgba(158,232,107,.25)}
 .fbtn .n{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:var(--pill);background:rgba(158,232,107,.12);font-size:.6rem}
 .fbtn.on .n{background:rgba(9,21,0,.15)}
 
@@ -269,6 +291,8 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .exp .when{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--green);letter-spacing:.08em}
 .exp .co{font-family:'Anton',sans-serif;font-size:1.15rem;color:var(--white);margin:8px 0 4px;line-height:1.2}
 .exp .ro{font-size:.92rem;color:var(--dim)}
+/* পদোন্নতির লাইন */
+.exp .pr{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:var(--muted);margin-top:8px;line-height:1.5}
 .exp ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .exp li{font-size:.9rem;color:var(--dim);padding-left:20px;position:relative}
 .exp li::before{content:'→';position:absolute;left:0;color:var(--green)}
@@ -321,14 +345,12 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
   .hero-grid,.featured,.grid3,.rows,.contact,.d-feat{grid-template-columns:1fr}
   .cta{grid-column:auto}
   .photo{min-height:300px}
+  /* মোবাইলে চার stat-এর বড় লেখা একসাথে একটু ছোট, যাতে "Agentic" বক্সে ধরে; চারটাই একই মাপ */
+  .stat b{font-size:2.2rem}
   .marquee span{font-size:1.9rem;padding:0 16px}
-  /* মোবাইলে filter: গোল (pill) ফ্রেমের ভেতরে এক সারিতে, আঙুল দিয়ে পাশে টানা যায়;
-     উপর থেকে 10px নিচে আটকে থাকে; ভেতরের tab-এ বর্ডার নেই, শুধু চাপা tab সবুজ */
-  .filters{top:10px;flex-wrap:nowrap;overflow-x:auto;gap:4px;margin:0 0 14px;padding:5px;border:1px solid rgba(158,232,107,.22);border-radius:var(--pill);background:rgba(14,34,0,.94);box-shadow:0 8px 24px rgba(0,0,0,.35);scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .filters::-webkit-scrollbar{display:none}
-  .fbtn{padding:8px 14px;border-color:transparent}
-  .fbtn:hover{border-color:transparent}
-  .fbtn.on{border-color:var(--green)}
+  /* মোবাইলে filter: একই গোল কাচের pill, এক সারিতে আঙুল দিয়ে পাশে টানা যায়; উপর থেকে 10px নিচে আটকে থাকে */
+  .filters{top:10px;width:auto;gap:4px;margin:0 0 14px;padding:5px}
+  .fbtn{padding:8px 14px}
   .gallery{--rh:130px;gap:10px}
   .shot .cap{padding:8px 10px 10px}
   .shot .cap b{font-size:.78rem}
@@ -379,7 +401,7 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
     <div class="loc">CHATTOGRAM, BANGLADESH</div>
   </div>
   <h1>MD. ASIFUR <span>RAHMAN</span></h1>
-  <p class="tagline"><b>Digital Solutions Engineer.</b> I build websites, internal business tools and IT systems, and I use AI-assisted development to turn manual office work into working software.</p>
+  <p class="tagline"><b>Digital Solutions Engineer.</b> I build websites, internal business tools and IT systems. I work with <em>agentic AI</em>: AI agents help me plan, write and test code, and I review every output before it turns manual office work into working software.</p>
 
   <div class="hero-grid">
     <div class="photo fade-up">
@@ -387,10 +409,10 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
       <img src="images/asifur.jpg" alt="Md. Asifur Rahman" onerror="this.parentNode.classList.add('missing')">
     </div>
     <div class="stats">
+      <div class="stat fade-up"><b>Agentic</b><span>AI agents build, I verify and ship</span></div>
       <div class="stat fade-up"><b>~5</b><span>years in web, IT and design</span></div>
       <div class="stat fade-up"><b>6</b><span>internal tools built for one company</span></div>
       <div class="stat fade-up"><b>75K+</b><span>emails migrated to Microsoft 365</span></div>
-      <div class="stat fade-up"><b>590+</b><span>vessel datasets standardised</span></div>
     </div>
     <div class="cta fade-up">
       <div>
@@ -409,8 +431,8 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
 <!-- MARQUEE -->
 <div class="marquee-zone" aria-hidden="true">
   <div class="marquee"><div>
-    <span>WordPress</span><span class="dot">✦</span><span>Adobe CC</span><span class="dot">✦</span><span>SEO</span><span class="dot">✦</span><span>AI Automation</span><span class="dot">✦</span><span>Microsoft 365</span><span class="dot">✦</span><span>PHP</span><span class="dot">✦</span><span>Digital Branding</span><span class="dot">✦</span><span>MySQL</span><span class="dot">✦</span>
-    <span>WordPress</span><span class="dot">✦</span><span>Adobe CC</span><span class="dot">✦</span><span>SEO</span><span class="dot">✦</span><span>AI Automation</span><span class="dot">✦</span><span>Microsoft 365</span><span class="dot">✦</span><span>PHP</span><span class="dot">✦</span><span>Digital Branding</span><span class="dot">✦</span><span>MySQL</span><span class="dot">✦</span>
+    <span>Agentic AI</span><span class="dot">✦</span><span>WordPress</span><span class="dot">✦</span><span>Adobe CC</span><span class="dot">✦</span><span>SEO</span><span class="dot">✦</span><span>AI Automation</span><span class="dot">✦</span><span>Microsoft 365</span><span class="dot">✦</span><span>PHP</span><span class="dot">✦</span><span>Digital Branding</span><span class="dot">✦</span><span>MySQL</span><span class="dot">✦</span>
+    <span>Agentic AI</span><span class="dot">✦</span><span>WordPress</span><span class="dot">✦</span><span>Adobe CC</span><span class="dot">✦</span><span>SEO</span><span class="dot">✦</span><span>AI Automation</span><span class="dot">✦</span><span>Microsoft 365</span><span class="dot">✦</span><span>PHP</span><span class="dot">✦</span><span>Digital Branding</span><span class="dot">✦</span><span>MySQL</span><span class="dot">✦</span>
   </div></div>
   <div class="marquee m2"><div>
     <span>Photoshop</span><span class="dot">✦</span><span>Illustrator</span><span class="dot">✦</span><span>Claude</span><span class="dot">✦</span><span>ChatGPT</span><span class="dot">✦</span><span>JavaScript</span><span class="dot">✦</span><span>cPanel</span><span class="dot">✦</span><span>DNS &amp; SSL</span><span class="dot">✦</span><span>Web Security</span><span class="dot">✦</span>
@@ -451,46 +473,44 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
         <div><b>Audit</b><span>full change log</span></div>
         <div><b>Charts</b><span>built-in insights</span></div>
       </div>
-      <a class="link" href="https://asifur-rahman-ai.github.io/AI-assisted-maritime-case-register/" target="_blank" rel="noopener">View live demo ↗</a>
+      <a class="go" href="https://asifur-rahman-ai.github.io/AI-assisted-maritime-case-register/" target="_blank" rel="noopener">Open live demo <span class="arr">↗</span></a>
     </div>
   </div>
 
+  <!-- প্রতিটি কার্ডের মাথায় ব্রাউজার-বার স্ক্রিপ্ট নিজে বসায় (href থেকে ঠিকানা নিয়ে) -->
   <div class="sub">Internal tools · built for a recognised company</div>
   <div class="grid3">
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/leave-system-demo/" target="_blank" rel="noopener">
       <span class="tag">Apps Script · Sheets</span><h3>Leave Management System</h3>
-      <p>Leave requests with a manager approval panel and WhatsApp notifications.</p><span class="go">Live demo ↗</span></a>
+      <p>Leave requests with a manager approval panel and WhatsApp notifications.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/poa-generator-demo/" target="_blank" rel="noopener">
       <span class="tag">PDF · Word</span><h3>Power of Attorney Generator</h3>
-      <p>Produces legal POA documents as PDF and Word in a few clicks.</p><span class="go">Live demo ↗</span></a>
+      <p>Produces legal POA documents as PDF and Word in a few clicks.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/team-file-share/" target="_blank" rel="noopener">
       <span class="tag">PHP · cPanel</span><h3>Team File Share</h3>
-      <p>Internal file sharing with per-user boxes, preview and ownership rules.</p><span class="go">Live demo ↗</span></a>
+      <p>Internal file sharing with per-user boxes, preview and ownership rules.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/document-register-demo/" target="_blank" rel="noopener">
       <span class="tag">HTML · JS</span><h3>Document Register</h3>
-      <p>Tracks incoming and outgoing office documents in one place.</p><span class="go">Live demo ↗</span></a>
+      <p>Tracks incoming and outgoing office documents in one place.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/requisition-slip-demo/" target="_blank" rel="noopener">
       <span class="tag">HTML · PDF</span><h3>Requisition Slip</h3>
-      <p>One office requisition form with clean PDF printing.</p><span class="go">Live demo ↗</span></a>
+      <p>One office requisition form with clean PDF printing.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
   </div>
 
   <div class="sub">Client and personal projects</div>
   <div class="grid3">
-    <a class="card proj fade-up" href="https://ambrrak.vercel.app/" target="_blank" rel="noopener">
-      <span class="tag">Client · Vercel</span><h3>AMBRRAK</h3>
-      <p>Website for a Turkish coffee shop in Chattogram.</p><span class="go">Visit site ↗</span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/nirapad-courier/" target="_blank" rel="noopener">
       <span class="tag">Client</span><h3>Nirapad Courier</h3>
-      <p>Courier service website.</p><span class="go">Live demo ↗</span></a>
+      <p>Courier service website.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/alhasan" target="_blank" rel="noopener">
       <span class="tag">Client</span><h3>Al Hasan Engineering Works</h3>
-      <p>Business website for an engineering workshop.</p><span class="go">Live demo ↗</span></a>
+      <p>Business website for an engineering workshop.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/jasmine-enterprise-demo/" target="_blank" rel="noopener">
       <span class="tag">Client</span><h3>Jasmine Enterprise</h3>
-      <p>Business website demo.</p><span class="go">Live demo ↗</span></a>
+      <p>Business website demo.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
     <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/smart-grocery-basket/" target="_blank" rel="noopener">
       <span class="tag">Personal</span><h3>Smart Grocery Basket</h3>
-      <p>Household inventory tracker web app.</p><span class="go">Live demo ↗</span></a>
+      <p>Household inventory tracker web app.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
   </div>
 </div>
 </section>
@@ -684,9 +704,9 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
   <h2>Core <em>Skills</em></h2>
   <div class="grid3">
     <div class="card sk fade-up">
-      <div class="sk-top"><h3>AI &amp; Automation</h3><div class="ring" style="--lvl:80"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Adv.</span></div></div>
-      <p>AI-assisted development and workflow automation for office processes.</p>
-      <div class="tags"><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Apps Script</span></div>
+      <div class="sk-top"><h3>Agentic AI &amp; Automation</h3><div class="ring" style="--lvl:80"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Adv.</span></div></div>
+      <p>Agentic AI workflows and AI-assisted development that turn office processes into working tools.</p>
+      <div class="tags"><span class="tag">AI agents</span><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Copilot</span><span class="tag">Apps Script</span></div>
       <div class="proof"><b>6</b><span>internal tools built for office workflows</span></div></div>
     <div class="card sk fade-up">
       <div class="sk-top"><h3>Web Development</h3><div class="ring" style="--lvl:80"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Adv.</span></div></div>
@@ -753,9 +773,11 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
     <div>
       <div class="when">JAN 2023 — PRESENT</div>
       <div class="co">Assurance Maritime Bangladesh Limited</div>
-      <div class="ro">Digital Executive · Chattogram</div>
+      <div class="ro">Assistant Manager, IT &amp; Digital · Chattogram</div>
+      <div class="pr">Promoted Nov 2026<br>Previously Digital Executive<br>Jan 2023 – Oct 2026</div>
     </div>
     <ul>
+      <li><b>IT and digital functions</b> owned end to end as the company's sole IT person, reporting directly to the Managing Director.</li>
       <li><b>Email migration</b> from cPanel to Microsoft 365, planned and run in-house.</li>
       <li><b>Six internal tools</b> built from scratch, including leave management and a legal document generator.</li>
       <li><b>Corporate WordPress site</b> redesigned and maintained; domain, hosting, DNS and SSL managed.</li>
@@ -863,6 +885,17 @@ document.querySelectorAll('.mobile-overlay a').forEach(a=>a.addEventListener('cl
   burger.setAttribute('aria-expanded','false');
 }));
 
+/* Project কার্ড: মাথায় ছোট ব্রাউজার-বার (ঠিকানা href থেকে) + "● Live";
+   প্রতিটি বাটনের অ্যানিমেশন একটু আগে-পরে শুরু হয় (--d), যাতে একসাথে না নড়ে */
+document.querySelectorAll('a.proj').forEach((a,i)=>{
+  let u;try{u=new URL(a.href)}catch(e){return}
+  const bar=document.createElement('span');bar.className='win';bar.setAttribute('aria-hidden','true');
+  bar.innerHTML='<i></i><i></i><i></i><span class="url"></span><span class="live"><span class="pulse"></span>Live</span>';
+  bar.querySelector('.url').textContent=(u.host+u.pathname).replace(/\/$/,'');
+  a.prepend(bar);
+  a.style.setProperty('--d',((i%3)*0.5)+'s');
+});
+
 /* একটি কাজের সব ছবি: data-file + data-more (কমা দিয়ে আলাদা) */
 const imgsOf=s=>[s.dataset.file,...(s.dataset.more?s.dataset.more.split(',').map(x=>x.trim()).filter(Boolean):[])];
 
@@ -900,7 +933,7 @@ fbtns.forEach(b=>b.addEventListener('click',()=>{
   const top=parseFloat(getComputedStyle(fbar).top)||0;
   const y=gal.getBoundingClientRect().top+window.scrollY-fbar.offsetHeight-top-8;
   if(window.scrollY>y)window.scrollTo({top:y,behavior:'smooth'});
-  /* মোবাইলে চাপা বাটন সারির মাঝখানে আনে */
+  /* সারি পাশে স্ক্রল হলে চাপা বাটন মাঝখানে আনে */
   fbar.scrollTo({left:b.offsetLeft-(fbar.clientWidth-b.offsetWidth)/2,behavior:'smooth'});
 }));
 
