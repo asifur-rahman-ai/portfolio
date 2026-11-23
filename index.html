@@ -242,6 +242,25 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .lb-nav.next{right:18px}
 .lb-nav[hidden]{display:none}
 
+/* CV PREVIEW: "View CV"-তে চাপলে খোলে; ভেতরে লাইভ CV পাতা (CV repo), পর্দার প্রস্থে মাপ মিলিয়ে ছোট হয়।
+   উপরের সারিতে Download PDF বাটন (portfolio repo-র cv-md-asifur-rahman.pdf) */
+.cvm{position:fixed;inset:0;z-index:600;background:rgba(5,12,0,.92);display:none;align-items:center;justify-content:center;padding:24px}
+.cvm.open{display:flex}
+.cvm-box{width:min(920px,100%);height:min(92vh,100%);display:flex;flex-direction:column;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.cvm-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 22px;border-bottom:1px solid var(--line)}
+.cvm-bar b{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cvm-act{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.cvm-full{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding:10px 12px;border-radius:var(--pill);transition:.2s}
+.cvm-full:hover{color:var(--green);background:rgba(158,232,107,.1)}
+.cvm-dl{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--green);color:var(--darkest);padding:11px 18px;border-radius:var(--pill);white-space:nowrap;transition:.2s}
+.cvm-dl:hover{transform:scale(1.03)}
+.cvm-x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--green);font-size:1.1rem;cursor:pointer;flex-shrink:0}
+.cvm-view{position:relative;flex:1;min-height:0;overflow:auto;background:#e6e9e2;-webkit-overflow-scrolling:touch}
+.cvm-sizer{margin:0 auto;overflow:hidden}
+.cvm-scale{width:860px;transform-origin:0 0}
+.cvm-scale iframe{display:block;width:860px;border:0;background:#e6e9e2}
+.cvm-load{position:absolute;inset:0;display:grid;place-items:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#687360;pointer-events:none}
+
 /* SKILLS */
 .sk{display:flex;flex-direction:column}
 .sk-top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:8px}
@@ -366,6 +385,11 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
   .lb-nav{top:auto;bottom:24px;transform:none}
   .lb-nav.prev{left:calc(50% - 60px)}
   .lb-nav.next{right:calc(50% - 60px)}
+  /* মোবাইলে CV প্রিভিউ পুরো পর্দা জুড়ে; "Full page" লুকানো */
+  .cvm{padding:0}
+  .cvm-box{width:100%;height:100%;border-radius:0;border:0}
+  .cvm-bar{padding:10px 10px 10px 16px}
+  .cvm-full{display:none}
   footer{flex-direction:column;gap:6px;text-align:center;padding-bottom:88px}
 }
 </style>
@@ -421,7 +445,8 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
       </div>
       <div class="btns">
         <a href="mailto:asifctg94@gmail.com" class="btn btn-dark">Send Email ↗</a>
-        <a href="cv-md-asifur-rahman.pdf" class="btn btn-line" download>Download CV ↓</a>
+        <!-- data-cv: চাপলে CV প্রিভিউ খোলে (স্ক্রিপ্ট না চললে সরাসরি PDF খোলে) -->
+        <a href="cv-md-asifur-rahman.pdf" class="btn btn-line" data-cv>View CV ↗</a>
         <a href="https://github.com/asifur-rahman-ai" target="_blank" rel="noopener" class="btn btn-line">GitHub ↗</a>
       </div>
     </div>
@@ -697,6 +722,21 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
   <a class="lb-pdf" id="lb-pdf" href="#" target="_blank" rel="noopener">Open full PDF ↗</a>
 </div>
 
+<!-- CV PREVIEW: ভেতরে লাইভ CV পাতা দেখায়; Download PDF বাটন portfolio repo-র PDF নামায় -->
+<div class="cvm" id="cvm" role="dialog" aria-modal="true" aria-label="CV preview">
+  <div class="cvm-box">
+    <div class="cvm-bar">
+      <b>Md. Asifur Rahman · CV</b>
+      <div class="cvm-act">
+        <a class="cvm-full" href="https://asifur-rahman-ai.github.io/CV/" target="_blank" rel="noopener">Full page ↗</a>
+        <a class="cvm-dl" href="cv-md-asifur-rahman.pdf" download>Download PDF ↓</a>
+        <button class="cvm-x" id="cvm-close" aria-label="Close CV preview">✕</button>
+      </div>
+    </div>
+    <div class="cvm-view" id="cvm-view"><div class="cvm-load" id="cvm-load">Loading CV…</div></div>
+  </div>
+</div>
+
 <!-- SKILLS — ring: style="--lvl:80" (0–100), ভেতরের শব্দ মিলিয়ে বদলান -->
 <section id="skills">
 <div class="wrap">
@@ -850,7 +890,8 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
       <a class="cl" href="https://wa.me/8801821304262" target="_blank" rel="noopener"><div><small>WhatsApp</small><span>+880 1821 304 262</span></div><i>↗</i></a>
       <a class="cl" href="https://www.linkedin.com/in/md-asifur-rahman-a955a9197/" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>md-asifur-rahman</span></div><i>↗</i></a>
       <a class="cl" href="https://github.com/asifur-rahman-ai" target="_blank" rel="noopener"><div><small>GitHub</small><span>asifur-rahman-ai</span></div><i>↗</i></a>
-      <a class="cl" href="cv-md-asifur-rahman.pdf" download><div><small>CV</small><span>Download PDF (2 pages)</span></div><i>↓</i></a>
+      <!-- data-cv: চাপলে CV প্রিভিউ খোলে -->
+      <a class="cl" href="cv-md-asifur-rahman.pdf" data-cv><div><small>CV</small><span>View CV (2 pages)</span></div><i>↗</i></a>
     </div>
   </div>
 </div>
@@ -993,6 +1034,57 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='ArrowLeft'&&slides.length>1)step(-1);
   else if(e.key==='ArrowRight'&&slides.length>1)step(1);
 });
+
+/* CV PREVIEW: data-cv লিংকে চাপলে খোলে। ভেতরে লাইভ CV পাতা (CV repo) iframe-এ,
+   CV_W প্রস্থে বানিয়ে পর্দার মাপে ছোট করা হয়; প্রথমবার খুললে একবারই লোড হয়।
+   একই সাইট (github.io) হলে CV পাতার "Save as PDF" toolbar লুকায় ও আসল উচ্চতা মাপে */
+const CV_URL='https://asifur-rahman-ai.github.io/CV/',CV_W=860;
+const cvm=document.getElementById('cvm'),cvView=document.getElementById('cvm-view'),
+      cvLoad=document.getElementById('cvm-load'),cvClose=document.getElementById('cvm-close');
+let cvFrame=null,cvSizer=null,cvScale=null,cvH=2400,lastCvBtn=null;
+function cvFit(){
+  if(!cvSizer)return;
+  const s=Math.min(1,cvView.clientWidth/CV_W);
+  cvScale.style.transform='scale('+s+')';
+  cvSizer.style.width=(CV_W*s)+'px';
+  cvSizer.style.height=(cvH*s)+'px';
+}
+function cvMeasure(){
+  try{
+    const d=cvFrame.contentDocument;
+    if(!d.getElementById('cv-embed-style')){
+      const st=d.createElement('style');st.id='cv-embed-style';
+      st.textContent='.toolbar{display:none!important}html,body{overflow:hidden!important}body{padding-bottom:8mm}';
+      d.head.appendChild(st);
+    }
+    cvH=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight);
+  }catch(e){/* অন্য সাইট থেকে খুললে মাপা যায় না; আগের উচ্চতাই থাকে */}
+  cvFrame.style.height=cvH+'px';
+  cvFit();
+}
+function openCv(btn){
+  lastCvBtn=btn;
+  if(!cvFrame){
+    cvSizer=document.createElement('div');cvSizer.className='cvm-sizer';
+    cvScale=document.createElement('div');cvScale.className='cvm-scale';
+    cvFrame=document.createElement('iframe');
+    cvFrame.src=CV_URL;cvFrame.title='CV of Md. Asifur Rahman';
+    cvFrame.style.height=cvH+'px';
+    cvFrame.addEventListener('load',()=>{cvMeasure();setTimeout(cvMeasure,800);if(cvLoad)cvLoad.remove()});
+    cvScale.appendChild(cvFrame);cvSizer.appendChild(cvScale);cvView.appendChild(cvSizer);
+  }
+  cvm.classList.add('open');document.body.style.overflow='hidden';
+  cvView.scrollTop=0;cvFit();cvClose.focus();
+}
+function closeCv(){
+  cvm.classList.remove('open');document.body.style.overflow='';
+  if(lastCvBtn)lastCvBtn.focus();
+}
+document.querySelectorAll('[data-cv]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openCv(a)}));
+cvClose.addEventListener('click',closeCv);
+cvm.addEventListener('click',e=>{if(e.target===cvm)closeCv()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cvm.classList.contains('open'))closeCv()});
+window.addEventListener('resize',()=>{if(cvm.classList.contains('open'))cvFit()});
 </script>
 </body>
 </html>
