@@ -813,7 +813,7 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
     <div>
       <div class="when">JAN 2023 — PRESENT</div>
       <div class="co">Assurance Maritime Bangladesh Limited</div>
-      <div class="ro">Assistant Manager, IT &amp; Digital · Chattogram</div>
+      <div class="ro">IT Systems &amp; Automation Specialist · Chattogram</div>
       <div class="pr">Promoted Nov 2026<br>Previously Digital Executive<br>Jan 2023 – Oct 2026</div>
     </div>
     <ul>
@@ -984,6 +984,13 @@ setN('d-total',document.querySelectorAll('.d-feat .shot, .gallery .shot').length
 setN('d-cats',[...fbtns].filter(b=>b.dataset.f!=='all'&&!b.hidden).length);
 setN('d-print',document.querySelectorAll('.p2p .shot').length);
 
+/* BACK বাটনে প্রিভিউ বন্ধ (মোবাইলের Back, iPhone-এর swipe-back, ব্রাউজারের ← সবই):
+   প্রিভিউ খুললে history-তে একটি ধাপ যোগ হয়। Back চাপলে সেই ধাপ সরে গিয়ে শুধু প্রিভিউ বন্ধ হয়,
+   পাতা ছেড়ে যায় না। ✕ / Esc / বাইরে চাপলে ধাপটিও সরানো হয়, যাতে পরে Back এক চাপেই আগের পাতায় যায়। */
+let modalPushed=false;
+function pushModal(){if(!modalPushed){history.pushState({preview:true},'');modalPushed=true}}
+function popModal(){if(modalPushed){modalPushed=false;history.back()}}
+
 /* Lightbox: ছবি, ভিডিও (mp4 বা YouTube), PDF।
    ← → আগে একই কাজের সব ছবি দেখায়, তারপর পরের কাজে যায় */
 const lb=document.getElementById('lb'),lbMedia=document.getElementById('lb-media'),
@@ -1017,16 +1024,20 @@ function openLb(s){
   shots.forEach(sh=>{const list=imgsOf(sh);list.forEach((src,i)=>slides.push({s:sh,src,i,n:list.length}))});
   si=slides.findIndex(x=>x.s===s);lastShot=s;
   showItem();lb.classList.add('open');document.body.style.overflow='hidden';lbClose.focus();
+  pushModal();
 }
-function closeLb(){
+/* fromHistory=true মানে Back বাটন থেকে বন্ধ হচ্ছে (তখন history আর পেছানোর দরকার নেই) */
+function closeLb(fromHistory){
+  if(!lb.classList.contains('open'))return;
   lb.classList.remove('open');lbMedia.innerHTML='';document.body.style.overflow='';
   if(lastShot)lastShot.focus();
+  if(fromHistory!==true)popModal();
 }
 function step(d){si=(si+d+slides.length)%slides.length;showItem()}
 document.querySelectorAll('.shot').forEach(s=>s.addEventListener('click',()=>{if(!s.classList.contains('missing'))openLb(s)}));
 lbPrev.addEventListener('click',()=>step(-1));
 lbNext.addEventListener('click',()=>step(1));
-lbClose.addEventListener('click',closeLb);
+lbClose.addEventListener('click',()=>closeLb());
 lb.addEventListener('click',e=>{if(e.target===lb||e.target===lbMedia)closeLb()});
 document.addEventListener('keydown',e=>{
   if(!lb.classList.contains('open'))return;
@@ -1075,16 +1086,27 @@ function openCv(btn){
   }
   cvm.classList.add('open');document.body.style.overflow='hidden';
   cvView.scrollTop=0;cvFit();cvClose.focus();
+  pushModal();
 }
-function closeCv(){
+function closeCv(fromHistory){
+  if(!cvm.classList.contains('open'))return;
   cvm.classList.remove('open');document.body.style.overflow='';
   if(lastCvBtn)lastCvBtn.focus();
+  if(fromHistory!==true)popModal();
 }
 document.querySelectorAll('[data-cv]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openCv(a)}));
-cvClose.addEventListener('click',closeCv);
+cvClose.addEventListener('click',()=>closeCv());
 cvm.addEventListener('click',e=>{if(e.target===cvm)closeCv()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cvm.classList.contains('open'))closeCv()});
 window.addEventListener('resize',()=>{if(cvm.classList.contains('open'))cvFit()});
+
+/* Back বাটন চাপলে: খোলা প্রিভিউ বন্ধ হয়, পাতা একই জায়গায় থাকে */
+window.addEventListener('popstate',()=>{
+  if(!modalPushed)return;
+  modalPushed=false;
+  closeLb(true);
+  closeCv(true);
+});
 </script>
 </body>
 </html>
