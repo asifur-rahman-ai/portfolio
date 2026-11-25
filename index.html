@@ -2,433 +2,1111 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- title = PDF save করার সময় ফাইলের নাম -->
-<title>cv-md-asifur-rahman</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Asifur Rahman — Digital Solutions Engineer</title>
+<meta name="description" content="Md. Asifur Rahman — Digital Solutions Engineer in Chattogram, Bangladesh. Agentic AI workflows, web development, IT infrastructure, Microsoft 365, internal tools and brand design.">
+<link rel="canonical" href="https://asifur-rahman-ai.github.io/portfolio/">
+<meta property="og:title" content="Md. Asifur Rahman — Digital Solutions Engineer">
+<meta property="og:description" content="Websites, internal business tools, IT systems and brand design, built with agentic AI and AI-assisted development.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://asifur-rahman-ai.github.io/portfolio/">
+<meta name="theme-color" content="#091500">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-@page{size:A4;margin:0}
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#152010;--body:#39432f;--dim:#687360;--accent:#1f5a00;
-      --side:#e4eddb;     /* বাম কলামের রং */
-      --card:#f3f7ee;     /* ডান দিকের সেকশন কার্ডের রং */
-      --tint2:#dfead4;--line:#d5dfca;
-      --pad:7mm;          /* পৃষ্ঠার উপর-নিচের মার্জিন */
-      --cardpad:2.7mm;    /* কার্ডের ভেতরের ফাঁকা জায়গা */
-      --gap:4.5mm;        /* সব সেকশনের মাঝে সমান ফাঁক (দুই পৃষ্ঠা, দুই কলাম) */
-      --bgap:1.4mm;       /* work bullet-গুলোর মাঝে ফাঁক (দুই পৃষ্ঠায় একই) — স্ক্রিপ্ট মিলিয়ে নেয় */
-      --rowpad:1.5mm;     /* Projects টেবিলের সারির ভেতরের উপর-নিচ ফাঁক — স্ক্রিপ্ট মিলিয়ে নেয় */
-      --sgap:1.4mm;}      /* বাম কলামের item-গুলোর মাঝে ফাঁক — স্ক্রিপ্ট প্রতি পৃষ্ঠায় মিলিয়ে নেয় */
-body{background:#e6e9e2;font-family:'Inter',system-ui,Arial,sans-serif;color:var(--body);font-size:9.2pt;line-height:1.45}
-a{color:inherit;text-decoration:none}
-svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --green:#9ee86b;--dark:#173300;--darker:#0e2200;--darkest:#091500;
+  --card:#1a3a00;--card2:#122b00;--text:#e8f5d8;--dim:#a9cf8a;--muted:#86ad66;--white:#f0fde4;
+  --line:rgba(158,232,107,.14);--radius:24px;--radius-lg:36px;--pill:200px;
+}
+body{background:var(--darkest);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.fade-up{opacity:1!important;transform:none!important}.tl-bar{transform:none!important}.ring .fg{stroke-dasharray:calc(var(--lvl) - 3.6) 100!important}.lang-bar i{width:var(--w)!important}}
 
-/* PDF বাটন: পৃষ্ঠার উপরে আলাদা জায়গায়, শুধু স্ক্রিনে; PDF/প্রিন্টে আসে না */
-.toolbar{width:210mm;max-width:100%;margin:8mm auto 0;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-.toolbar button{font-family:'Inter',sans-serif;font-size:10.5pt;font-weight:700;color:#fff;background:var(--accent);border:0;border-radius:99px;padding:10px 22px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18)}
-.toolbar button:hover{background:#2c7a04}
-.toolbar small{font-size:8.5pt;line-height:1.45;color:var(--body)}
-.toolbar .fit{flex-basis:100%;text-align:center;font-weight:600;color:var(--accent)}
+/* NAV */
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;background:rgba(23,51,0,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:var(--pill);padding:8px 8px 8px 24px;white-space:nowrap}
+.nav-brand{font-family:'Anton',sans-serif;color:var(--green);letter-spacing:.08em;margin-right:20px;text-decoration:none}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--dim);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border-radius:var(--pill);transition:.2s}
+.nav-links a:hover,.nav-links a.active{background:rgba(158,232,107,.12);color:var(--green)}
+.nav-cta{background:var(--green);color:var(--darkest);font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:10px 20px;border-radius:var(--pill);margin-left:8px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;gap:5px;flex-direction:column}
+.hamburger span{display:block;width:20px;height:2px;background:var(--green);border-radius:2px;transition:.3s}
+.mobile-overlay{position:fixed;inset:0;background:rgba(9,21,0,.98);z-index:199;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;visibility:hidden;transition:.3s}
+.mobile-overlay a{font-family:'Anton',sans-serif;font-size:2.1rem;color:var(--text);text-decoration:none}
+body.menu-open .mobile-overlay{opacity:1;visibility:visible}
+body.menu-open .hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.menu-open .hamburger span:nth-child(2){opacity:0}
+body.menu-open .hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* পৃষ্ঠা: সারির উচ্চতা A4-এ বাঁধা, তাই এক কলাম লম্বা হলে অন্য কলাম টেনে লম্বা হয় না */
-.page{width:210mm;height:297mm;margin:8mm auto;background:#fff;display:grid;grid-template-columns:64mm 1fr;grid-template-rows:minmax(0,1fr);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.12)}
-.side,.main{display:flex;flex-direction:column;justify-content:flex-start;gap:var(--gap);min-height:0}
-.side{background:var(--side);padding:var(--pad) 5mm}
-.main{padding:var(--pad) 7mm}
+/* LAYOUT */
+.wrap{max-width:1180px;margin:0 auto;padding:72px 28px}
+.label{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--green);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1;letter-spacing:.02em;margin-bottom:32px;color:var(--white)}
+h2 em{color:var(--green);font-style:normal}
+.alt{background:var(--darker)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-3px);border-color:rgba(158,232,107,.3)}
+.tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.62rem;padding:4px 11px;border-radius:var(--pill);background:rgba(158,232,107,.08);border:1px solid var(--line);color:var(--green);letter-spacing:.05em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 
-/* সেকশন কার্ড */
-section{border-radius:3mm;padding:var(--cardpad)}
-.main section{background:var(--card);border:1px solid #e3ebd9}
-.side section{background:#fff}
+/* HERO */
+#hero{padding-top:120px;padding-bottom:48px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.available{display:inline-flex;align-items:center;gap:8px;background:rgba(158,232,107,.08);border:1px solid var(--line);border-radius:var(--pill);padding:7px 16px;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--green);letter-spacing:.12em;text-transform:uppercase}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.loc{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--muted);letter-spacing:.1em}
+h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(3rem,8.5vw,7rem);line-height:.95;margin:18px 0 12px;color:var(--white)}
+h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
+.tagline{font-size:clamp(1rem,1.6vw,1.2rem);color:var(--dim);max-width:740px;margin-bottom:28px}
+.tagline b{color:var(--white);font-weight:500}
+.tagline em{font-style:normal;color:var(--green);font-weight:500}
+.hero-grid{display:grid;grid-template-columns:1fr 2fr 1fr;gap:16px}
+.photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);background:var(--card);min-height:340px}
+/* নতুন পাসপোর্ট-ধাঁচের ছবি: মুখ মাঝখানে, উপরের দিকে, তাই 50% 15% */
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+/* ছবি না পেলে বক্সে ফাইলের নাম দেখায় */
+.photo.missing img{display:none}
+.photo.missing::before{content:'images/asifur.jpg';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted)}
+/* চারটি stat বক্স: সবগুলোর নকশা ও ফন্ট একই */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;justify-content:flex-end}
+.stat b{font-family:'Anton',sans-serif;font-weight:400;font-size:2.6rem;color:var(--green);line-height:1}
+.stat span{font-size:.8rem;color:var(--dim);margin-top:6px}
+.cta{background:var(--green);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.cta h3{font-family:'Anton',sans-serif;font-weight:400;font-size:1.8rem;color:var(--darkest);line-height:1.1}
+.cta p{font-size:.85rem;color:var(--dark);margin-top:8px}
+.btns{display:flex;flex-direction:column;gap:8px}
+.btn{display:block;text-align:center;text-decoration:none;font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:13px;border-radius:var(--pill);transition:.2s}
+.btn-dark{background:var(--darkest);color:var(--green)}
+.btn-line{border:2px solid var(--dark);color:var(--dark)}
+.btn:hover{transform:scale(1.02)}
 
-/* Justify */
-.just,ul.b li,.sk span,.profile{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+/* MARQUEE — দুই ফিতা, বিপরীত দিকে */
+.marquee-zone{overflow:hidden;padding:26px 0 30px}
+.marquee{overflow:hidden;padding:16px 0;background:var(--green);transform:rotate(-1.5deg) scaleX(1.03)}
+.marquee div{display:flex;width:max-content;animation:mq 22s linear infinite}
+.marquee span{font-family:'Anton',sans-serif;font-size:3rem;color:var(--darkest);white-space:nowrap;padding:0 26px;text-transform:uppercase;letter-spacing:.05em;line-height:1.1}
+.marquee span.dot{font-size:1.2rem;padding:0 6px;display:inline-flex;align-items:center}
+.marquee.m2{background:#1f4500;transform:rotate(1.5deg) scaleX(1.03);margin-top:-6px}
+.marquee.m2 div{animation-direction:reverse}
+.marquee.m2 span{color:var(--green)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* Section headings */
-h2{display:flex;align-items:center;gap:7px;font-size:9.6pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 2.4mm}
-h2 .ico{width:6mm;height:6mm;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;flex-shrink:0}
-h2 .ico svg{width:3.4mm;height:3.4mm}
-h2::after{content:'';flex:1;height:1px;background:var(--line)}
-/* শিরোনামের পাশের ছোট নোট (যেমন Gallery-র লিংক) */
-h2 .h2note{font-size:7.3pt;font-weight:500;letter-spacing:0;text-transform:none;color:var(--dim);white-space:nowrap}
-h2 .h2note b,h2 .h2note a{color:var(--accent);font-family:Consolas,'Courier New',monospace;font-weight:600}
+/* FEATURED */
+.featured{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feat{background:var(--card2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:36px}
+.feat h3{font-family:'Anton',sans-serif;font-weight:400;font-size:1.9rem;color:var(--white);line-height:1.1;margin:14px 0 10px}
+.feat p{font-size:.92rem;color:var(--dim)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.facts div{border-top:1px solid var(--line);padding-top:10px}
+.facts b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:1.5rem;color:var(--green);line-height:1.1}
+.facts span{font-size:.74rem;color:var(--muted)}
 
-/* Header */
-h1{font-size:25pt;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1.05}
-.role{font-size:10.8pt;font-weight:700;color:var(--accent);margin-top:3px}
-.focus{font-size:8.7pt;color:var(--dim);margin-top:2px}
-.head{padding:0 var(--cardpad) 3mm;border-bottom:2px solid var(--accent)}
+/* Migration progress — শেষ হলে শেষ li-এর class "now" বদলে "done" করুন */
+.steps-cap{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:22px}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.steps li{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:12px;position:relative;line-height:1.35}
+.steps li::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;border-radius:5px;background:rgba(158,232,107,.15)}
+.steps li.done{color:var(--dim)}
+.steps li.done::before{background:var(--green)}
+.steps li.done::after{content:'✓ ';color:var(--green)}
+.steps li.now{color:var(--green)}
+.steps li.now::before{background:linear-gradient(90deg,var(--green) 55%,rgba(158,232,107,.15) 55%);animation:pulse 2s infinite}
 
-/* ছবি: 42×50mm (আগের 46×55-এর একই অনুপাত, জায়গা বাঁচাতে ছোট); উপর থেকে বসানো
-   মুখ আরও বড় চাইলে: transform:scale(1.1);transform-origin:50% 25%; যোগ করুন */
-.photo{width:42mm;height:50mm;border-radius:8px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.15);overflow:hidden;margin:0 auto;flex-shrink:0;background:#fff}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block}
+/* PROJECTS */
+.sub{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj{display:flex;flex-direction:column;text-decoration:none;overflow:hidden;cursor:pointer}
+.proj h3{font-size:1.08rem;font-weight:700;color:var(--white);margin:12px 0 6px}
+.proj p{font-size:.86rem;color:var(--dim);flex:1}
+.proj .tag{align-self:flex-start}
 
-/* Sidebar content — ছোট লেখা সব 8pt, লেবেল 8.5pt */
-.clist{list-style:none}
-.clist li{display:flex;gap:6px;align-items:flex-start;margin-bottom:var(--sgap);font-size:8pt;color:var(--ink);word-break:break-word}
-.clist li:last-child{margin-bottom:0}
-.clist svg{width:3.5mm;height:3.5mm;color:var(--accent);flex-shrink:0;margin-top:1px}
-/* Portfolio লিংক: হালকা হাইলাইট — লেখার মাপ একই (8pt), শুধু পটভূমি, বাঁ দাগ, রং ও ওজন।
-   ঋণাত্মক মার্জিন দেওয়ায় আইকন ও লেখা অন্য লাইনগুলোর সাথে এক সোজায় থাকে */
-.clist li.pf{background:var(--tint2);border-left:2.5px solid var(--accent);border-radius:2mm;padding:1.1mm 1.6mm 1.1mm calc(1.6mm - 2.5px);margin-left:-1.6mm;margin-right:-1.6mm;color:var(--accent);font-weight:700}
-.sk,.item{margin-bottom:var(--sgap)}
-.sk:last-child,.item:last-child{margin-bottom:0}
-.sk b{display:block;font-size:8.5pt;color:var(--ink);font-weight:700}
-.sk span{display:block;font-size:8pt;color:var(--body)}
-.item b{display:block;font-size:8.5pt;color:var(--ink);font-weight:600;line-height:1.3}
-.item span{font-size:8pt;color:var(--dim)}
-/* Education: ডিগ্রির নামের লাইনের ডানদিকে রেজাল্ট (নতুন লাইন লাগে না; 8pt, বাকি ছোট লেখার সমান) */
-.item.edu b{display:flex;justify-content:space-between;align-items:baseline;gap:4px}
-.item.edu b em{font-style:normal;font-size:8pt;font-weight:600;color:var(--accent);white-space:nowrap}
-.qr{text-align:center}
-.qr img{width:22mm;height:22mm;display:block;margin:0 auto 2mm}
-.qr b{display:block;font-size:8.5pt;color:var(--ink)}
+/* Live demo বোঝানো: কার্ডের মাথায় ছোট ব্রাউজার-বার (ঠিকানা স্ক্রিপ্ট নিজে বসায়)
+   + নিচে pill বাটন, তীর মাঝে মাঝে ↗ দিকে নড়ে, বাটনে আলোর ঝিলিক যায় */
+.win{display:flex;align-items:center;gap:6px;margin:-28px -28px 18px;padding:10px 14px;background:var(--card2);border-bottom:1px solid var(--line)}
+.win i{width:8px;height:8px;border-radius:50%;background:rgba(158,232,107,.22);flex-shrink:0}
+.win .url{flex:1;min-width:0;margin-left:6px;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);background:rgba(9,21,0,.55);border:1px solid var(--line);border-radius:var(--pill);padding:4px 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .2s}
+.win .live{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);flex-shrink:0}
+.win .live .pulse{width:6px;height:6px}
+.proj:hover .win .url{color:var(--green)}
 
-/* Language bar: --v = কতটা ভরা; দুই প্রান্তই গোল */
-.lbar{height:1.8mm;background:var(--tint2);border-radius:99px;margin-top:.9mm;overflow:hidden}
-.lbar i{display:block;height:100%;width:var(--v);background:var(--accent);border-radius:99px}
+.go{align-self:flex-start;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:9px 16px;border-radius:var(--pill);border:1px solid rgba(158,232,107,.38);background:rgba(158,232,107,.08);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.go .arr{display:inline-block;animation:nudge 2.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.go::after{content:'';position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(90deg,transparent,rgba(240,253,228,.28),transparent);transform:skewX(-20deg);animation:shine 3.8s ease-in-out infinite;animation-delay:var(--d,0s);pointer-events:none}
+.go:hover,.proj:hover .go{background:var(--green);color:var(--darkest);border-color:var(--green)}
+@keyframes nudge{0%,55%,100%{transform:translate(0,0)}65%{transform:translate(3px,-3px)}75%{transform:translate(0,0)}85%{transform:translate(3px,-3px)}}
+@keyframes shine{0%,50%{left:-60%}80%,100%{left:130%}}
+.feat .go{margin-top:20px}
 
-/* Skill Levels ring: --v = ring কতটা ভরা (0–100); আর্কের মাথা গোল (round cap) */
-.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm 1.5mm}
-.rg{text-align:center}
-.ring{--v:60;position:relative;width:10mm;height:10mm;margin:0 auto 1mm;display:grid;place-items:center}
+/* ===== DESIGN WORK ===== */
+.d-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.d-head h2{margin-bottom:14px}
+.intro{font-size:.95rem;color:var(--dim);max-width:600px}
+.d-stats{display:flex;gap:10px;flex-wrap:wrap}
+.d-stats div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 18px;min-width:112px}
+.d-stats b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:2rem;color:var(--green);line-height:1}
+.d-stats span{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* প্রতিটি কাজ = button.shot; ছবি .im-এর ভেতরে পুরোটা দেখায় (কাটে না), ক্যাপশন নিচে এক লাইনে */
+.shot{position:relative;display:flex;flex-direction:column;width:100%;padding:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--card);cursor:zoom-in;font:inherit;color:inherit;text-align:left;transition:border-color .25s,transform .25s}
+.shot:hover{border-color:rgba(158,232,107,.45);transform:translateY(-3px)}
+.shot .im{position:relative;display:block;overflow:hidden;background:var(--card2)}
+.shot .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s ease}
+.shot:hover .im img{transform:scale(1.03)}
+.shot .cap{display:block;padding:10px 14px 12px;border-top:1px solid var(--line)}
+.shot .cap b{display:block;font-size:.88rem;font-weight:500;color:var(--white);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot .cap small{display:block;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{position:absolute;top:12px;right:12px;z-index:1;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(9,21,0,.85);color:var(--green);border:1px solid var(--line);padding:5px 10px;border-radius:var(--pill)}
+.shot.hide{display:none}
+/* ছবি না থাকলে: ঘরে ফাইলের নাম (স্ক্রিপ্ট .im-এ data-file বসায়) */
+.shot.missing{cursor:default}
+.shot.missing:hover{transform:none}
+.shot.missing .im img{display:none}
+.shot.missing .im::before{content:attr(data-file);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;text-align:center;word-break:break-all;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);background:repeating-linear-gradient(45deg,transparent 0 10px,rgba(158,232,107,.035) 10px 20px)}
+
+/* Featured: দুটি বড় কার্ড; ডিজাইন ফ্রেমের মতো চারপাশে ফাঁকা রেখে পুরোটা দেখায় */
+.d-feat{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-bottom:40px}
+.shot.big{height:440px;border-radius:var(--radius-lg)}
+.shot.big .im{flex:1;min-height:0}
+.shot.big .im img{padding:20px}
+.shot.big .cap{padding:16px 22px 18px}
+.shot.big .cap .tag{margin-bottom:8px}
+.shot.big .cap b{font-family:'Anton',sans-serif;font-weight:400;font-size:1.4rem;letter-spacing:.01em}
+
+/* Filter: উপরের nav-এর মতো গোল, ঝাপসা কাচের pill, একটু গ্লসি; এক সারিতে মাঝখানে।
+   গ্যালারি দেখার সময় উপরে আটকে থাকে (sticky); desktop-এ nav-এর নিচে (top:84px) */
+.d-browse{position:relative}
+.filters{position:sticky;top:84px;z-index:50;display:flex;flex-wrap:nowrap;gap:2px;width:fit-content;max-width:100%;margin:0 auto 22px;padding:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0) 55%),rgba(23,51,0,.72);
+  backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+  border:1px solid rgba(158,232,107,.2);border-radius:var(--pill);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 10px 30px rgba(0,0,0,.35)}
+.filters::-webkit-scrollbar{display:none}
+.fbtn{flex-shrink:0;white-space:nowrap;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:var(--pill);border:0;background:transparent;color:var(--dim);cursor:pointer;transition:.2s}
+.fbtn:hover{background:rgba(158,232,107,.12);color:var(--green)}
+.fbtn.on{background:linear-gradient(180deg,#b6f28c,var(--green));color:var(--darkest);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 2px 10px rgba(158,232,107,.25)}
+.fbtn .n{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:var(--pill);background:rgba(158,232,107,.12);font-size:.6rem}
+.fbtn.on .n{background:rgba(9,21,0,.15)}
+
+/* Justified gallery: প্রতিটি সারির উচ্চতা সমান, কাজগুলো বাম→ডান ক্রমে, প্রতিটি ছবি নিজের অনুপাতে পুরোটা।
+   --r  = প্রস্থ ÷ উচ্চতা (দশমিকে, যেমন 1.5); আসল ছবি লোড হলে স্ক্রিপ্ট নিজে মেপে বসায়
+   --rh = সারির মোটামুটি উচ্চতা */
+.gallery{--rh:230px;display:flex;flex-wrap:wrap;gap:14px}
+.gallery::after{content:'';flex-grow:999999}
+.gallery .shot{width:auto;min-width:0;flex:var(--r,1) 1 calc(var(--r,1) * var(--rh))}
+.gallery .shot .im{aspect-ratio:var(--r,1)}
+
+/* From Screen to Print: bento গ্রিড — প্রথম কাজ (class "lead") ২×২ বড় ঘর, বাকিগুলো বর্গাকার।
+   ৪ কলামে ১টি বড় + ৮টি ছোট = ঠিক ৩ সারি */
+.p2p{margin-top:48px;padding-top:40px;border-top:1px solid var(--line)}
+.p2p-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.p2p-head h3{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);line-height:1}
+.p2p-head h3 em{color:var(--green);font-style:normal}
+.p2p-head p{font-size:.88rem;color:var(--dim);max-width:460px}
+.p2p-row{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:dense;gap:14px}
+.p2p-row .shot .im{aspect-ratio:1/1}
+.p2p-row .shot .im img{object-fit:cover}
+.p2p-row .shot.lead{grid-column:span 2;grid-row:span 2;border-radius:var(--radius-lg)}
+.p2p-row .shot.lead .im{aspect-ratio:auto;flex:1;min-height:0}
+.p2p-row .shot.lead .cap{padding:14px 20px 16px}
+.p2p-row .shot.lead .cap b{font-family:'Anton',sans-serif;font-weight:400;font-size:1.3rem;letter-spacing:.01em}
+
+/* আরও দেখতে চাইলে */
+.d-more{margin-top:40px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px}
+.d-more b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:1.4rem;color:var(--white)}
+.d-more span{font-size:.88rem;color:var(--dim)}
+.d-more a{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--darkest);background:var(--green);padding:13px 24px;border-radius:var(--pill);white-space:nowrap;transition:.2s}
+.d-more a:hover{transform:scale(1.03)}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:500;background:rgba(5,12,0,.96);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 80px}
+.lb.open{display:flex}
+.lb-media{display:flex;justify-content:center}
+.lb-media img,.lb-media video{max-width:min(88vw,1100px);max-height:72vh;border-radius:12px;display:block}
+.lb-media iframe{width:min(88vw,1000px);aspect-ratio:16/9;border:0;border-radius:12px;background:#000}
+.lb-media .lb-miss{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);padding:60px 20px;text-align:center;word-break:break-all}
+.lb-cap{text-align:center}
+.lb-cap b{display:block;color:var(--white);font-weight:500}
+.lb-cap small{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--green);letter-spacing:.06em}
+.lb-cap span{display:block;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.12em;margin-top:4px}
+.lb-pdf{display:none;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:var(--green);color:var(--darkest);padding:11px 22px;border-radius:var(--pill)}
+.lb-close{position:absolute;top:18px;right:20px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--green);font-size:1.3rem;cursor:pointer}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--green);font-size:1.2rem;cursor:pointer;transition:.2s}
+.lb-nav:hover{background:var(--green);color:var(--darkest)}
+.lb-nav.prev{left:18px}
+.lb-nav.next{right:18px}
+.lb-nav[hidden]{display:none}
+
+/* CV PREVIEW: "View CV"-তে চাপলে খোলে; ভেতরে লাইভ CV পাতা (CV repo), পর্দার প্রস্থে মাপ মিলিয়ে ছোট হয়।
+   উপরের সারিতে Download PDF বাটন (portfolio repo-র cv-md-asifur-rahman.pdf) */
+.cvm{position:fixed;inset:0;z-index:600;background:rgba(5,12,0,.92);display:none;align-items:center;justify-content:center;padding:24px}
+.cvm.open{display:flex}
+.cvm-box{width:min(920px,100%);height:min(92vh,100%);display:flex;flex-direction:column;background:var(--card2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.cvm-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 22px;border-bottom:1px solid var(--line)}
+.cvm-bar b{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cvm-act{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.cvm-full{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding:10px 12px;border-radius:var(--pill);transition:.2s}
+.cvm-full:hover{color:var(--green);background:rgba(158,232,107,.1)}
+.cvm-dl{font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--green);color:var(--darkest);padding:11px 18px;border-radius:var(--pill);white-space:nowrap;transition:.2s}
+.cvm-dl:hover{transform:scale(1.03)}
+.cvm-x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--green);font-size:1.1rem;cursor:pointer;flex-shrink:0}
+.cvm-view{position:relative;flex:1;min-height:0;overflow:auto;background:#e6e9e2;-webkit-overflow-scrolling:touch}
+.cvm-sizer{margin:0 auto;overflow:hidden}
+.cvm-scale{width:860px;transform-origin:0 0}
+.cvm-scale iframe{display:block;width:860px;border:0;background:#e6e9e2}
+.cvm-load{position:absolute;inset:0;display:grid;place-items:center;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#687360;pointer-events:none}
+
+/* SKILLS */
+.sk{display:flex;flex-direction:column}
+.sk-top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:8px}
+.sk h3{font-family:'Anton',sans-serif;font-weight:400;font-size:1.35rem;color:var(--white)}
+.sk p{font-size:.86rem;color:var(--dim)}
+.sk .tags{margin-bottom:18px}
+/* Skill ring: style="--lvl:80" (0–100); স্ক্রল করলে ভরে ওঠে; আর্কের মাথা গোল (round cap) */
+.ring{width:64px;height:64px;flex-shrink:0;position:relative;display:grid;place-items:center}
 .ring .arc{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
-.ring .arc circle{fill:none;stroke-width:4}
-.ring .arc .tr{stroke:var(--tint2)}
-.ring .arc .fg{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:calc(var(--v) - 4) 100}
-.ring .ic{position:relative;width:4.2mm;height:4.2mm;color:var(--accent)}
-.rg b{display:block;font-size:7.3pt;color:var(--ink);font-weight:700;line-height:1.2}
-.rg span{display:block;font-size:6.8pt;color:var(--dim);line-height:1.2}
-.rnote{font-size:6.8pt;color:var(--dim);text-align:center;margin-top:1.2mm}
+.ring .arc circle{fill:none;stroke-width:3.6}
+.ring .tr{stroke:rgba(158,232,107,.12)}
+.ring .fg{stroke:var(--green);stroke-linecap:round;stroke-dasharray:0 100;transition:stroke-dasharray 1.3s cubic-bezier(.2,.7,.2,1) .2s}
+.sk.visible .ring .fg{stroke-dasharray:calc(var(--lvl) - 3.6) 100}
+.ring span{position:relative;font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green);text-align:center;line-height:1.15}
+.proof{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.proof b{font-family:'Anton',sans-serif;font-weight:400;font-size:2rem;color:var(--green);line-height:1;white-space:nowrap}
+.proof span{font-size:.78rem;color:var(--muted);line-height:1.35}
+.sk-note{margin-top:14px;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--muted)}
 
-/* Main content */
-.profile{font-size:9.4pt;color:var(--ink)}
-/* Key Results: ৪ কলাম, ২ সারি (৮টি tile); সব tile-এ একই ফন্ট */
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm}
-.tile{background:#fff;border-left:3px solid var(--accent);border-radius:4px;padding:2mm 2.4mm}
-.tile b{display:block;font-size:13.5pt;font-weight:800;color:var(--accent);line-height:1.1}
-.tile span{font-size:7.5pt;color:var(--body);line-height:1.3;display:block;margin-top:2px}
-.job{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.job .t{font-size:10.4pt;font-weight:700;color:var(--ink);line-height:1.25}
-.job .c{font-size:9.1pt;font-weight:600;color:var(--accent)}
-/* পদোন্নতির লাইন: ছোট লেখা (8pt), বাকি ছোট লেখার সমান */
-.job .p{font-size:8pt;color:var(--dim);margin-top:1px}
-.job .d{font-size:8pt;font-weight:600;color:var(--accent);background:var(--tint2);padding:2px 8px;border-radius:20px;white-space:nowrap;margin-top:1px}
-/* Work bullet: প্রতিটির শুরুতে বোল্ড লেবেল ("…:"), বাকিটা নরমাল */
-ul.b{margin:2mm 0 0 13px}
-ul.b li{margin-bottom:var(--bgap)}
-ul.b li:last-child{margin-bottom:0}
-ul.b li b{color:var(--ink);font-weight:600}
-table{width:100%;border-collapse:collapse;font-size:8.5pt}
-th{text-align:left;font-size:7.3pt;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:600;padding:0 6px 1.3mm 0;border-bottom:1px solid var(--line)}
-td{padding:var(--rowpad) 6px var(--rowpad) 0;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:none}
-td:first-child{font-weight:600;color:var(--ink)}
-td.url{font-family:Consolas,'Courier New',monospace;font-size:7.6pt;color:var(--accent);word-break:break-all}
-/* Projects টেবিলের ভেতরের উপ-শিরোনাম (Company Tools / Client & Personal) */
-tr.grp td{padding:1.8mm 0 1mm;font-size:7.3pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-tr.grp td span{font-weight:500;letter-spacing:0;text-transform:none;color:var(--dim);margin-left:6px}
-tr.grp td span b{font-family:Consolas,'Courier New',monospace;font-weight:600;color:var(--accent)}
+/* CAREER TIMELINE — ২০১৭ = 0%, প্রতি বছর = 10% */
+.tlw{margin-bottom:16px}
+.tlw:hover{transform:none}
+.tl-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tl-head .label{margin:0}
+.tl-note{font-size:.78rem;color:var(--muted)}
+.tl-scroll{overflow-x:auto;margin-top:18px;padding-bottom:4px}
+.tl{min-width:640px}
+.tl-row,.tl-axis{display:grid;grid-template-columns:100px 1fr;align-items:center}
+.tl-row{height:42px}
+.tl-row>b{font-family:'DM Mono',monospace;font-size:.62rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tl-track{position:relative;height:100%;background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:10% 100%}
+.tl-track::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.tl-bar{position:absolute;top:9px;height:24px;border-radius:12px;background:var(--green);color:var(--darkest);font-family:'DM Mono',monospace;font-size:.62rem;font-weight:500;line-height:24px;padding:0 8px;white-space:nowrap;overflow:hidden;z-index:1;transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .25s}
+.tl-bar.alt{background:#5f9a35}
+.tl-bar.now{background:linear-gradient(90deg,var(--green) 82%,rgba(158,232,107,.3))}
+.tlw.visible .tl-bar{transform:none}
+.tl-dot{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--darkest);border:2px solid var(--green);z-index:1}
+.tl-dot i{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-style:normal;font-size:.76rem;color:var(--text);white-space:nowrap;background:var(--card);padding:0 4px}
+.tl-dot.l i{left:auto;right:16px}
+/* সালের সারি: প্রথম ঘরটি ফাঁকা <i> */
+.tl-axis>i{display:block}
+.tl-axis>div{position:relative;height:22px}
+.tl-axis span{position:absolute;top:6px;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted)}
 
-/* References: দুটি কার্ড পাশাপাশি; লেখার মাপ বাম কলামের item-এর সমান (8.5pt / 8pt) */
-.refs{display:grid;grid-template-columns:1fr 1fr;gap:2.4mm}
-.ref{background:#fff;border-left:3px solid var(--accent);border-radius:4px;padding:2mm 2.6mm}
-.ref b{display:block;font-size:8.5pt;color:var(--ink);font-weight:700;line-height:1.3}
-.ref span{display:block;font-size:8pt;color:var(--body);line-height:1.4}
-.ref .ttl{color:var(--accent);font-weight:600}
-.ref .org{margin-bottom:.6mm}
+/* EXPERIENCE — প্রতিটি bullet-এর শুরুর মূল শব্দ বোল্ড, বাকিটা নরমাল */
+.exp{display:grid;grid-template-columns:250px 1fr;gap:36px;margin-bottom:16px}
+.exp .when{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--green);letter-spacing:.08em}
+.exp .co{font-family:'Anton',sans-serif;font-size:1.15rem;color:var(--white);margin:8px 0 4px;line-height:1.2}
+.exp .ro{font-size:.92rem;color:var(--dim)}
+/* পদোন্নতির লাইন */
+.exp .pr{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:var(--muted);margin-top:8px;line-height:1.5}
+.exp ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp li{font-size:.9rem;color:var(--dim);padding-left:20px;position:relative}
+.exp li::before{content:'→';position:absolute;left:0;color:var(--green)}
+.exp li b{color:var(--white);font-weight:700}
 
-@media print{
-  body{background:#fff}
-  .toolbar{display:none}
-  .page{margin:0;box-shadow:none;page-break-after:always}
-  .page:last-child{page-break-after:auto}
-  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+/* EDUCATION */
+.rows{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.row-list{list-style:none}
+.row-list li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.row-list li:last-child{border-bottom:none}
+.row-list b{color:var(--white);font-weight:500;display:block}
+.row-list small{color:var(--muted);font-size:.8rem}
+.row-list .yr{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--green);white-space:nowrap}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.c-big{background:var(--green);border-radius:var(--radius-lg);padding:44px;color:var(--dark)}
+.c-big h3{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(2rem,4vw,3rem);color:var(--darkest);line-height:1;margin-bottom:14px}
+/* ভাষার bar: style="--w:75%" */
+.langs{margin-top:22px;display:flex;flex-direction:column;gap:12px;max-width:360px}
+.lang-row{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.06em;color:var(--darkest)}
+.lang-row small{font-size:.64rem;color:var(--dark)}
+.lang-bar{height:8px;border-radius:99px;background:rgba(9,21,0,.15);margin-top:5px;overflow:hidden}
+.lang-bar i{display:block;height:100%;width:0;background:var(--darkest);border-radius:99px;transition:width 1.2s cubic-bezier(.2,.7,.2,1) .3s}
+.c-big.visible .lang-bar i{width:var(--w)}
+.c-links{display:flex;flex-direction:column;gap:10px}
+.cl{display:flex;justify-content:space-between;align-items:center;gap:14px;text-decoration:none;padding:16px 20px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line);transition:.2s}
+.cl:hover{border-color:var(--green);transform:translateX(4px)}
+.cl small{display:block;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--green);letter-spacing:.1em;text-transform:uppercase}
+.cl span{font-size:.92rem;color:var(--text)}
+.cl i{font-style:normal;color:var(--green)}
+footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--muted)}
+
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr 1fr}
+  .cta{grid-column:1/3}
+  .grid3{grid-template-columns:1fr 1fr}
+  .gallery{--rh:190px}
+  .p2p-row{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  nav{top:auto;bottom:16px;width:calc(100% - 32px);max-width:420px;justify-content:space-between;padding:8px 14px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .wrap{padding:52px 20px}
+  #hero{padding-top:56px}
+  .hero-grid,.featured,.grid3,.rows,.contact,.d-feat{grid-template-columns:1fr}
+  .cta{grid-column:auto}
+  .photo{min-height:300px}
+  /* মোবাইলে চার stat-এর বড় লেখা একসাথে একটু ছোট, যাতে "Agentic" বক্সে ধরে; চারটাই একই মাপ */
+  .stat b{font-size:2.2rem}
+  .marquee span{font-size:1.9rem;padding:0 16px}
+  /* মোবাইলে filter: একই গোল কাচের pill, এক সারিতে আঙুল দিয়ে পাশে টানা যায়; উপর থেকে 10px নিচে আটকে থাকে */
+  .filters{top:10px;width:auto;gap:4px;margin:0 0 14px;padding:5px}
+  .fbtn{padding:8px 14px}
+  .gallery{--rh:130px;gap:10px}
+  .shot .cap{padding:8px 10px 10px}
+  .shot .cap b{font-size:.78rem}
+  .shot.big{height:340px}
+  .shot.big .im img{padding:12px}
+  .p2p-row{grid-template-columns:1fr 1fr;gap:10px}
+  .p2p-row .shot.lead .cap b{font-size:1.05rem}
+  .d-stats div{min-width:0;flex:1}
+  .exp{grid-template-columns:1fr;gap:16px}
+  .feat,.c-big{padding:28px 22px}
+  .steps{grid-template-columns:1fr 1fr;row-gap:14px}
+  .lb{padding:24px 16px 90px}
+  .lb-nav{top:auto;bottom:24px;transform:none}
+  .lb-nav.prev{left:calc(50% - 60px)}
+  .lb-nav.next{right:calc(50% - 60px)}
+  /* মোবাইলে CV প্রিভিউ পুরো পর্দা জুড়ে; "Full page" লুকানো */
+  .cvm{padding:0}
+  .cvm-box{width:100%;height:100%;border-radius:0;border:0}
+  .cvm-bar{padding:10px 10px 10px 16px}
+  .cvm-full{display:none}
+  footer{flex-direction:column;gap:6px;text-align:center;padding-bottom:88px}
 }
 </style>
 </head>
 <body>
 
-<!-- PDF বাটন (শুধু স্ক্রিনে, পৃষ্ঠার উপরে) -->
-<div class="toolbar">
-  <button type="button" onclick="window.print()">⬇ Save as PDF</button>
-  <small>In the print window: Destination → <b>Save as PDF</b> · Paper → <b>A4</b> · Margins → <b>None</b> · ✅ <b>Background graphics</b></small>
-  <!-- দুই কলাম এক লাইনে শেষ হলো কিনা, স্ক্রিপ্ট এখানে জানায় -->
-  <small class="fit" id="fit"></small>
+<nav aria-label="Main navigation">
+  <a href="#hero" class="nav-brand">AR.</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#design">Design</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+  <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-overlay">
+  <a href="#work">Work</a>
+  <a href="#design">Design</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
 </div>
 
-<!-- আইকন (একবার সংজ্ঞায়িত, পরে ব্যবহার) -->
-<svg width="0" height="0" style="position:absolute">
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
-  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></symbol>
-  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
-  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5.5 5.8"/></symbol>
-  <symbol id="i-case" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
-  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
-  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c2 2 10 2 12 0v-4.5"/></symbol>
-  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 21l4-2 4 2-1-7.5"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
-  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
-  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z"/><path d="M14 6l4 4"/></symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.4-7 10-7 10z"/></symbol>
-  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></symbol>
-  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 7.5h.01M7 16.5h.01"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></symbol>
-  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
-</svg>
+<!-- HERO -->
+<section id="hero" class="wrap">
+  <div class="hero-top">
+    <div class="available"><span class="pulse"></span> Available for opportunities</div>
+    <div class="loc">CHATTOGRAM, BANGLADESH</div>
+  </div>
+  <h1>MD. ASIFUR <span>RAHMAN</span></h1>
+  <p class="tagline"><b>Digital Solutions Engineer.</b> I build websites, internal business tools and IT systems. I work with <em>agentic AI</em>: AI agents help me plan, write and test code, and I review every output before it turns manual office work into working software.</p>
 
-<!-- ================= PAGE 1 ================= -->
-<div class="page">
-  <aside class="side">
-    <!-- ছবি: এই ফাইল যে ফোল্ডারে, তার ভেতরের images/asifur.jpg -->
-    <div class="photo"><img src="images/asifur.jpg" alt="Md. Asifur Rahman"></div>
-
-    <section>
-      <h2><span class="ico"><svg><use href="#i-user"/></svg></span>Contact</h2>
-      <ul class="clist">
-        <li><svg><use href="#i-pin"/></svg>North Agrabad, Chattogram, Bangladesh</li>
-        <!-- নম্বরে ক্লিক করলে WhatsApp খোলে -->
-        <li><svg><use href="#i-phone"/></svg><a href="https://wa.me/8801821304262">+880 1821 304262</a></li>
-        <li><svg><use href="#i-mail"/></svg><a href="mailto:asifctg94@gmail.com">asifctg94@gmail.com</a></li>
-        <li><svg><use href="#i-link"/></svg><a href="https://www.linkedin.com/in/md-asifur-rahman-a955a9197/">linkedin.com/in/md-asifur-rahman-a955a9197</a></li>
-        <li><svg><use href="#i-code"/></svg><a href="https://github.com/asifur-rahman-ai">github.com/asifur-rahman-ai</a></li>
-        <!-- Portfolio: হালকা হাইলাইট (class "pf") -->
-        <li class="pf"><svg><use href="#i-globe"/></svg><a href="https://asifur-rahman-ai.github.io/portfolio/">asifur-rahman-ai.github.io/portfolio</a></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><span class="ico"><svg><use href="#i-grid"/></svg></span>Core Skills</h2>
-      <div class="sk"><b>Agentic AI &amp; Automation</b><span>AI agents, AI-assisted development (Claude, ChatGPT, Gemini, Copilot), Google Apps Script, workflow automation</span></div>
-      <div class="sk"><b>Web Development</b><span>HTML, CSS, JavaScript, PHP, WordPress, Elementor, ACF, Bootstrap, Chart.js</span></div>
-      <div class="sk"><b>IT Infrastructure</b><span>Microsoft 365, Exchange Online, cPanel, DNS, SSL, PC and network setup, printers, IP phones</span></div>
-      <div class="sk"><b>Web Security</b><span>Malware and spam cleanup, incident response, site hardening, backup</span></div>
-      <div class="sk"><b>Data</b><span>Python (pandas), data cleaning, Google Sheets, MySQL, dashboards</span></div>
-      <div class="sk"><b>Design &amp; SEO</b><span>Photoshop, Illustrator, Canva, branding, print design, SEO</span></div>
-    </section>
-
-    <section>
-      <h2><span class="ico"><svg><use href="#i-chat"/></svg></span>Languages</h2>
-      <!-- bar-এর দৈর্ঘ্য: --v -->
-      <div class="item"><b>Bengali</b><span>Native</span><div class="lbar"><i style="--v:100%"></i></div></div>
-      <div class="item"><b>English</b><span>Professional working proficiency</span><div class="lbar"><i style="--v:75%"></i></div></div>
-    </section>
-  </aside>
-
-  <main class="main">
-    <div class="head">
-      <h1>Md. Asifur Rahman</h1>
-      <div class="role">Digital Solutions Engineer</div>
-      <div class="focus">Agentic AI · Web Development · IT Infrastructure · Brand Design</div>
+  <div class="hero-grid">
+    <div class="photo fade-up">
+      <!-- নিজের ছবি images/asifur.jpg নামে রাখুন -->
+      <img src="images/asifur.jpg" alt="Md. Asifur Rahman" onerror="this.parentNode.classList.add('missing')">
     </div>
-
-    <section>
-      <h2><span class="ico"><svg><use href="#i-user"/></svg></span>Profile</h2>
-      <p class="profile">Digital Solutions Engineer with nearly 5 years of experience, now leading the digital transformation of a maritime company as sole owner of its IT and digital functions, reporting to the Managing Director. I work with agentic AI to turn manual office processes into working web applications and internal tools, and I verify every output before it goes live. M.Engg in Computer Science &amp; Engineering.</p>
-    </section>
-
-    <!-- Key Results: ৮টি tile; সব tile-এ একই ফন্ট (সংখ্যা/শব্দ 13.5pt, বিবরণ 7.5pt) -->
-    <section>
-      <h2><span class="ico"><svg><use href="#i-star"/></svg></span>Key Results</h2>
-      <div class="tiles">
-        <div class="tile"><b>Agentic</b><span>AI workflows to build, test and ship tools</span></div>
-        <div class="tile"><b>6</b><span>tools built with AI-assisted development</span></div>
-        <div class="tile"><b>75,000+</b><span>emails (38 GB) moved to Microsoft 365</span></div>
-        <div class="tile"><b>590+</b><span>vessel datasets standardised</span></div>
-        <div class="tile"><b>Org-wide</b><span>end-user IT support: hardware, network &amp; VoIP</span></div>
-        <div class="tile"><b>50+</b><span>hidden spam links removed</span></div>
-        <div class="tile"><b>12</b><span>public projects on GitHub</span></div>
-        <div class="tile"><b>2</b><span>AI courses, Helsinki and IBM</span></div>
+    <div class="stats">
+      <div class="stat fade-up"><b>Agentic</b><span>AI agents build, I verify and ship</span></div>
+      <div class="stat fade-up"><b>~5</b><span>years in web, IT and design</span></div>
+      <div class="stat fade-up"><b>6</b><span>internal tools built for one company</span></div>
+      <div class="stat fade-up"><b>75K+</b><span>emails migrated to Microsoft 365</span></div>
+    </div>
+    <div class="cta fade-up">
+      <div>
+        <h3>Let's work together</h3>
+        <p>Open to full-time roles, freelance projects and collaborations.</p>
       </div>
-    </section>
-
-    <section>
-      <h2><span class="ico"><svg><use href="#i-case"/></svg></span>Work Experience</h2>
-      <!-- pill = কোম্পানিতে মোট সময়; নিচের ছোট লাইনে পদোন্নতি -->
-      <div class="job">
-        <div><div class="t">IT Systems &amp; Automation Specialist</div><div class="c">Assurance Maritime Bangladesh Limited · Chattogram</div><div class="p">Promoted Nov 2026 · Digital Executive, Jan 2023 – Oct 2026</div></div>
-        <div class="d">Jan 2023 – Present</div>
+      <div class="btns">
+        <a href="mailto:asifctg94@gmail.com" class="btn btn-dark">Send Email ↗</a>
+        <!-- data-cv: চাপলে CV প্রিভিউ খোলে (স্ক্রিপ্ট না চললে সরাসরি PDF খোলে) -->
+        <a href="cv-md-asifur-rahman.pdf" class="btn btn-line" data-cv>View CV ↗</a>
+        <a href="https://github.com/asifur-rahman-ai" target="_blank" rel="noopener" class="btn btn-line">GitHub ↗</a>
       </div>
-      <ul class="b">
-        <li><b>Email migration to Microsoft 365:</b> planned and ran the in-house move from cPanel to Exchange Online; 4 mailboxes and 75,000+ messages (38 GB largest mailbox) synced with no failed batch; SPF, DKIM and DMARC configured; MX cutover in final stage.</li>
-        <li><b>AI-assisted Maritime Case Register (in progress):</b> multi-user web application with PIN login, audit log, dispatch and receive sub-registers and charts, shaped by a Python (pandas) analysis of the 592-job register.</li>
-        <li><b>Internal tools:</b> Leave Management System (Apps Script, WhatsApp alerts, manager approval), Power of Attorney Generator (PDF and Word), Team File Share (PHP), Document Register and Requisition Slip on one shared design system.</li>
-        <li><b>Corporate website:</b> redesigned and maintain the WordPress site with Elementor, ACF and custom PHP; manage domain, hosting, cPanel, DNS and SSL.</li>
-        <li><b>Security incidents:</b> removed an SEO spam injection of 50+ hidden links, audited every page and hardened the site; handled a compromised mailbox credential.</li>
-        <li><b>Data management:</b> cleaned and standardised 590+ vessel datasets; maintain the weekly demolition vessel register.</li>
-        <li><b>Vendors and IT support:</b> compared IT providers and wrote decision reports for management; daily IT support across departments, including PC setup, Windows installation, printers, scanners, routers, network and IP phones.</li>
-        <li><b>Design and documents:</b> produced brochures, certificates, a client guide on ship arrest and an employee policy handbook in the company brand.</li>
-      </ul>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-zone" aria-hidden="true">
+  <div class="marquee"><div>
+    <span>Agentic AI</span><span class="dot">✦</span><span>WordPress</span><span class="dot">✦</span><span>Adobe CC</span><span class="dot">✦</span><span>SEO</span><span class="dot">✦</span><span>AI Automation</span><span class="dot">✦</span><span>Microsoft 365</span><span class="dot">✦</span><span>PHP</span><span class="dot">✦</span><span>Digital Branding</span><span class="dot">✦</span><span>MySQL</span><span class="dot">✦</span>
+    <span>Agentic AI</span><span class="dot">✦</span><span>WordPress</span><span class="dot">✦</span><span>Adobe CC</span><span class="dot">✦</span><span>SEO</span><span class="dot">✦</span><span>AI Automation</span><span class="dot">✦</span><span>Microsoft 365</span><span class="dot">✦</span><span>PHP</span><span class="dot">✦</span><span>Digital Branding</span><span class="dot">✦</span><span>MySQL</span><span class="dot">✦</span>
+  </div></div>
+  <div class="marquee m2"><div>
+    <span>Photoshop</span><span class="dot">✦</span><span>Illustrator</span><span class="dot">✦</span><span>Claude</span><span class="dot">✦</span><span>ChatGPT</span><span class="dot">✦</span><span>JavaScript</span><span class="dot">✦</span><span>cPanel</span><span class="dot">✦</span><span>DNS &amp; SSL</span><span class="dot">✦</span><span>Web Security</span><span class="dot">✦</span>
+    <span>Photoshop</span><span class="dot">✦</span><span>Illustrator</span><span class="dot">✦</span><span>Claude</span><span class="dot">✦</span><span>ChatGPT</span><span class="dot">✦</span><span>JavaScript</span><span class="dot">✦</span><span>cPanel</span><span class="dot">✦</span><span>DNS &amp; SSL</span><span class="dot">✦</span><span>Web Security</span><span class="dot">✦</span>
+  </div></div>
 </div>
 
-<!-- ================= PAGE 2 ================= -->
-<div class="page">
-  <aside class="side">
-    <section>
-      <h2><span class="ico"><svg><use href="#i-globe"/></svg></span>See My Work</h2>
-      <div class="qr">
-        <!-- QR-এর ঠিকানা: data= এর পরের অংশ (এখন portfolio site) -->
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&margin=0&data=https%3A%2F%2Fasifur-rahman-ai.github.io%2Fportfolio%2F" alt="QR code to my portfolio">
-        <b>Scan to open my portfolio</b>
+<!-- WORK -->
+<section id="work">
+<div class="wrap">
+  <div class="label">Portfolio</div>
+  <h2>Featured <em>Work</em></h2>
+  <div class="featured">
+    <div class="feat fade-up">
+      <span class="tag">IT Infrastructure · Assurance Maritime</span>
+      <h3>Company email migration to Microsoft 365</h3>
+      <p>Planned and ran the full migration from cPanel to Exchange Online in-house, without an outside vendor. Daily sync with no failed batch; SPF, DKIM and DMARC configured. MX cutover in final stage.</p>
+      <div class="facts">
+        <div><b>4</b><span>mailboxes</span></div>
+        <div><b>75K+</b><span>messages</span></div>
+        <div><b>38 GB</b><span>largest mailbox</span></div>
       </div>
-    </section>
-
-    <section>
-      <h2><span class="ico"><svg><use href="#i-chart"/></svg></span>Skill Levels</h2>
-      <!-- ring কতটা ভরা: style="--v:80" (0–100); নিচের শব্দও মিলিয়ে বদলান -->
-      <div class="rings">
-        <div class="rg"><div class="ring" style="--v:80"><svg class="arc" viewBox="0 0 36 36"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><svg class="ic"><use href="#i-cpu"/></svg></div><b>Agentic AI</b><span>Advanced</span></div>
-        <div class="rg"><div class="ring" style="--v:80"><svg class="arc" viewBox="0 0 36 36"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><svg class="ic"><use href="#i-code"/></svg></div><b>Web Dev</b><span>Advanced</span></div>
-        <div class="rg"><div class="ring" style="--v:80"><svg class="arc" viewBox="0 0 36 36"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><svg class="ic"><use href="#i-server"/></svg></div><b>IT Infra</b><span>Advanced</span></div>
-        <div class="rg"><div class="ring" style="--v:60"><svg class="arc" viewBox="0 0 36 36"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><svg class="ic"><use href="#i-shield"/></svg></div><b>Security</b><span>Intermediate</span></div>
-        <div class="rg"><div class="ring" style="--v:60"><svg class="arc" viewBox="0 0 36 36"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><svg class="ic"><use href="#i-chart"/></svg></div><b>Data</b><span>Intermediate</span></div>
-        <div class="rg"><div class="ring" style="--v:80"><svg class="arc" viewBox="0 0 36 36"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><svg class="ic"><use href="#i-pen"/></svg></div><b>Design</b><span>Advanced</span></div>
+      <!-- Migration শেষ হলে শেষ li-এর class "now" বদলে "done" করুন -->
+      <div class="steps-cap">Migration status</div>
+      <ol class="steps">
+        <li class="done">Plan</li>
+        <li class="done">Mailbox sync</li>
+        <li class="done">SPF · DKIM · DMARC</li>
+        <li class="now">MX cutover</li>
+      </ol>
+    </div>
+    <div class="feat fade-up">
+      <span class="tag">Web App · Assurance Maritime · In progress</span>
+      <h3>AI-assisted Maritime Case Register</h3>
+      <p>A multi-user register for maritime jobs and cases, built with AI-assisted development and shaped by an analysis of the existing 592-job register.</p>
+      <div class="facts">
+        <div><b>PIN</b><span>multi-user login</span></div>
+        <div><b>Audit</b><span>full change log</span></div>
+        <div><b>Charts</b><span>built-in insights</span></div>
       </div>
-      <div class="rnote">Self-assessed level</div>
-    </section>
+      <a class="go" href="https://asifur-rahman-ai.github.io/AI-assisted-maritime-case-register/" target="_blank" rel="noopener">Open live demo <span class="arr">↗</span></a>
+    </div>
+  </div>
 
-    <!-- Education: ডিগ্রির নামের ডানদিকে রেজাল্ট (<em>…</em>) -->
-    <section>
-      <h2><span class="ico"><svg><use href="#i-cap"/></svg></span>Education</h2>
-      <div class="item edu"><b>M.Engg, CSE <em>CGPA 3.35/4.00</em></b><span>Port City International University · 2021</span></div>
-      <div class="item edu"><b>B.Engg, CSE <em>CGPA 2.84/4.00</em></b><span>Premier University, Chattogram · 2018</span></div>
-      <div class="item edu"><b>HSC, Science <em>GPA 3.70/5.00</em></b><span>BEPZA Public School &amp; College · 2012</span></div>
-      <div class="item edu"><b>SSC, Science <em>GPA 4.69/5.00</em></b><span>Chattogram Port Authority High School &amp; College · 2010</span></div>
-    </section>
+  <!-- প্রতিটি কার্ডের মাথায় ব্রাউজার-বার স্ক্রিপ্ট নিজে বসায় (href থেকে ঠিকানা নিয়ে) -->
+  <div class="sub">Internal tools · built for a recognised company</div>
+  <div class="grid3">
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/leave-system-demo/" target="_blank" rel="noopener">
+      <span class="tag">Apps Script · Sheets</span><h3>Leave Management System</h3>
+      <p>Leave requests with a manager approval panel and WhatsApp notifications.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/poa-generator-demo/" target="_blank" rel="noopener">
+      <span class="tag">PDF · Word</span><h3>Power of Attorney Generator</h3>
+      <p>Produces legal POA documents as PDF and Word in a few clicks.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/team-file-share/" target="_blank" rel="noopener">
+      <span class="tag">PHP · cPanel</span><h3>Team File Share</h3>
+      <p>Internal file sharing with per-user boxes, preview and ownership rules.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/document-register-demo/" target="_blank" rel="noopener">
+      <span class="tag">HTML · JS</span><h3>Document Register</h3>
+      <p>Tracks incoming and outgoing office documents in one place.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/requisition-slip-demo/" target="_blank" rel="noopener">
+      <span class="tag">HTML · PDF</span><h3>Requisition Slip</h3>
+      <p>One office requisition form with clean PDF printing.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+  </div>
 
-    <section>
-      <h2><span class="ico"><svg><use href="#i-award"/></svg></span>Training</h2>
-      <div class="item"><b>Elements of AI</b><span>University of Helsinki &amp; MinnaLearn · 2025 · 2 ECTS</span></div>
-      <div class="item"><b>Exploring Artificial Intelligence</b><span>IBM SkillsBuild · 2025</span></div>
-      <div class="item"><b>CCNA course</b><span>BITM, People Tech, Dhaka · 2021 · 4 months</span></div>
-      <div class="item"><b>Top-Up IT Training (Java)</b><span>ICT Division, Bangladesh Computer Council · 2017 · 6 months</span></div>
-    </section>
+  <div class="sub">Client and personal projects</div>
+  <div class="grid3">
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/nirapad-courier/" target="_blank" rel="noopener">
+      <span class="tag">Client</span><h3>Nirapad Courier</h3>
+      <p>Courier service website.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/alhasan" target="_blank" rel="noopener">
+      <span class="tag">Client</span><h3>Al Hasan Engineering Works</h3>
+      <p>Business website for an engineering workshop.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/jasmine-enterprise-demo/" target="_blank" rel="noopener">
+      <span class="tag">Client</span><h3>Jasmine Enterprise</h3>
+      <p>Business website demo.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+    <a class="card proj fade-up" href="https://asifur-rahman-ai.github.io/smart-grocery-basket/" target="_blank" rel="noopener">
+      <span class="tag">Personal</span><h3>Smart Grocery Basket</h3>
+      <p>Household inventory tracker web app.</p><span class="go">Open live demo <span class="arr">↗</span></span></a>
+  </div>
+</div>
+</section>
 
-    <section>
-      <h2><span class="ico"><svg><use href="#i-heart"/></svg></span>Interests</h2>
-      <div class="item"><span>New technology, visual arts and science; exercise, cricket and football.</span></div>
-    </section>
-  </aside>
+<!-- ================= DESIGN WORK =================
+     প্রতিটি কাজ = একটি button.shot
+     data-cat   : creative | branding | flyer | print | profile | motion
+     data-file  : ছবির পথ (ভিডিওর ক্ষেত্রে poster ছবি)
+     data-more  : (ঐচ্ছিক) একই কাজের আরও ছবি, কমা দিয়ে আলাদা; lightbox-এ ← → দিয়ে দেখা যায়,
+                  ঘরের কোণে "N photos" ব্যাজ স্ক্রিপ্ট নিজে বসায়
+     data-pdf   : (ঐচ্ছিক) PDF-এর পথ
+     data-video : (ঐচ্ছিক) mp4-এর পথ, অথবা https://www.youtube.com/embed/ভিডিও-ID
+     style="--r:1.5" : ছবির অনুপাত (প্রস্থ ÷ উচ্চতা, দশমিকে)। আসল ছবি এলে স্ক্রিপ্ট নিজে মেপে নেয়,
+                       তাই এটা শুধু ছবি লোড হওয়ার আগে/ছবি না থাকলে কাজে লাগে
+     কোনো কাজ বাদ দিতে পুরো <button>…</button> মুছুন; সংখ্যা নিজে বদলায় -->
+<section id="design" class="alt">
+<div class="wrap">
+  <div class="d-head">
+    <div>
+      <div class="label">Visual Design</div>
+      <h2>Design <em>Work</em></h2>
+      <p class="intro">Creative campaigns, a branding series, flyers, banners, packaging and company profiles. Many of these were printed and used in the real world. See the printed work at the end. Click any piece to view it larger.</p>
+    </div>
+    <div class="d-stats fade-up">
+      <div><b id="d-total">0</b><span>Pieces shown</span></div>
+      <div><b id="d-cats">0</b><span>Categories</span></div>
+      <div><b id="d-print">0</b><span>Printed works</span></div>
+    </div>
+  </div>
 
-  <main class="main">
-    <section>
-      <h2><span class="ico"><svg><use href="#i-case"/></svg></span>Work Experience (continued)</h2>
-      <div class="job">
-        <div><div class="t">Jr. Website Developer &amp; Designer</div><div class="c">Escape Bangladesh Limited · Chattogram</div></div>
-        <div class="d">Dec 2021 – Dec 2022</div>
-      </div>
-      <ul class="b">
-        <li><b>Web development:</b> delivered 3 websites and 1 custom web application from scratch.</li>
-        <li><b>Design and branding:</b> designed 27 flyers, animation videos, company profiles and full branding kits for logistics and construction services.</li>
-        <li><b>Marketing and reporting:</b> managed content marketing and SEO, and produced data-driven reports.</li>
-        <li><b>IT support:</b> resolved network, hardware and software issues; wrote user guides and handover presentations.</li>
-      </ul>
-    </section>
+  <!-- Featured: দুটি বড় কার্ড -->
+  <div class="d-feat fade-up" data-group>
+    <button class="shot big" data-file="images/design/brand-assurance-logo.jpg" data-title="Logo explanation sheet" data-meta="Assurance Maritime · Brand identity">
+      <span class="im"><img src="images/design/brand-assurance-logo.jpg" alt="Assurance Maritime logo explanation sheet" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><span class="tag">Featured · Brand identity</span><b>Logo explanation sheet</b><small>Assurance Maritime</small></span></button>
+    <button class="shot big" data-file="images/design/brand-office-stationery.jpg" data-title="Office stationery design" data-meta="Brand identity · Print">
+      <span class="im"><img src="images/design/brand-office-stationery.jpg" alt="Office stationery design" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><span class="tag">Featured · Stationery</span><b>Office stationery design</b><small>Letterhead, cards and envelope</small></span></button>
+  </div>
 
-    <!-- Design Work: Gallery-র লিংক শিরোনামের পাশে, নিচে শুধু বিবরণ -->
-    <section>
-      <h2><span class="ico"><svg><use href="#i-pen"/></svg></span>Design Work <span class="h2note">Gallery: <a href="https://asifur-rahman-ai.github.io/portfolio/#design">asifur-rahman-ai.github.io/portfolio/#design</a></span></h2>
-      <p class="just">Flyers, social media posts, brand kits, packaging labels and company profiles for clients in logistics, construction, interior design and consumer goods, made with Adobe Illustrator, Photoshop and Canva.</p>
-    </section>
+  <!-- Filter + গ্যালারি একসাথে: গ্যালারি দেখার সময় filter উপরে আটকে থাকে -->
+  <div class="d-browse">
+  <!-- বাটনের পাশের সংখ্যা স্ক্রিপ্ট নিজে গুনে বসায় -->
+  <div class="filters" role="group" aria-label="Filter design work">
+    <button class="fbtn on" data-f="all" aria-pressed="true">All</button>
+    <button class="fbtn" data-f="creative" aria-pressed="false">Creative</button>
+    <button class="fbtn" data-f="branding" aria-pressed="false">Branding</button>
+    <button class="fbtn" data-f="flyer" aria-pressed="false">Flyers &amp; Banners</button>
+    <button class="fbtn" data-f="print" aria-pressed="false">Print &amp; Packaging</button>
+    <button class="fbtn" data-f="profile" aria-pressed="false">Company Profiles</button>
+    <button class="fbtn" data-f="motion" aria-pressed="false">UI &amp; Motion</button>
+  </div>
 
-    <!-- Projects: একটি টেবিল, ভেতরে দুই ভাগ -->
-    <section>
-      <h2><span class="ico"><svg><use href="#i-code"/></svg></span>Projects</h2>
-      <table>
-        <tr><th style="width:31%">Project</th><th>What it does</th><th style="width:30%">Address</th></tr>
-        <tr class="grp"><td colspan="3">Company Tools<span>Demos: <b>asifur-rahman-ai.github.io</b> + address</span></td></tr>
-        <tr><td>Maritime Case Register</td><td>AI-assisted case register with audit log (in progress)</td><td class="url"><a href="https://asifur-rahman-ai.github.io/AI-assisted-maritime-case-register/">/AI-assisted-maritime-case-register</a></td></tr>
-        <tr><td>Leave Management System</td><td>Leave requests, manager approval, WhatsApp alerts</td><td class="url"><a href="https://asifur-rahman-ai.github.io/leave-system-demo/">/leave-system-demo</a></td></tr>
-        <tr><td>Power of Attorney Generator</td><td>Legal POA documents as PDF and Word</td><td class="url"><a href="https://asifur-rahman-ai.github.io/poa-generator-demo/">/poa-generator-demo</a></td></tr>
-        <tr><td>Team File Share</td><td>Internal file sharing</td><td class="url"><a href="https://asifur-rahman-ai.github.io/team-file-share/">/team-file-share</a></td></tr>
-        <tr><td>Document Register</td><td>Incoming/outgoing document log</td><td class="url"><a href="https://asifur-rahman-ai.github.io/document-register-demo/">/document-register-demo</a></td></tr>
-        <tr><td>Requisition Slip</td><td>Requisition form with PDF print</td><td class="url"><a href="https://asifur-rahman-ai.github.io/requisition-slip-demo/">/requisition-slip-demo</a></td></tr>
-        <tr class="grp"><td colspan="3">Client &amp; Personal</td></tr>
-        <tr><td>Nirapad Courier</td><td>Courier service website</td><td class="url"><a href="https://asifur-rahman-ai.github.io/nirapad-courier/">/nirapad-courier</a></td></tr>
-        <tr><td>Al Hasan Engineering Works</td><td>Business website for an engineering workshop</td><td class="url"><a href="https://asifur-rahman-ai.github.io/alhasan">/alhasan</a></td></tr>
-        <tr><td>Jasmine Enterprise</td><td>Business website demo</td><td class="url"><a href="https://asifur-rahman-ai.github.io/jasmine-enterprise-demo/">/jasmine-enterprise-demo</a></td></tr>
-        <tr><td>Smart Grocery Basket</td><td>Household inventory tracker</td><td class="url"><a href="https://asifur-rahman-ai.github.io/smart-grocery-basket/">/smart-grocery-basket</a></td></tr>
-      </table>
-    </section>
+  <div class="gallery fade-up" data-group>
+    <!-- ===== Creative (Creative ফোল্ডারের ৯টি কাজ) ===== -->
+    <button class="shot" data-cat="creative" data-file="images/design/creative-21-february.jpg" data-title="21 February · Language Movement Day" data-meta="Creative · Social post" style="--r:1">
+      <span class="im"><img src="images/design/creative-21-february.jpg" alt="21 February Language Movement Day post" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>21 February · Language Movement Day</b><small>Creative · Social post</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-labour-day.jpg" data-title="Labour Day" data-meta="Creative · Social post" style="--r:1">
+      <span class="im"><img src="images/design/creative-labour-day.jpg" alt="Labour Day creative post" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Labour Day</b><small>Creative · Social post</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-sports-banner.jpg" data-title="Sports event banner" data-meta="Creative · Standing banner" style="--r:.55">
+      <span class="im"><img src="images/design/creative-sports-banner.jpg" alt="Sports event standing banner" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Sports event banner</b><small>Creative · Standing banner</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-26-march.jpg" data-title="26 March · Independence Day" data-meta="Creative · Social post" style="--r:1.33">
+      <span class="im"><img src="images/design/creative-26-march.jpg" alt="26 March Independence Day post" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>26 March · Independence Day</b><small>Creative · Social post</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-youth-skills-day.jpg" data-title="World Youth Skills Day" data-meta="Creative · Social post" style="--r:1">
+      <span class="im"><img src="images/design/creative-youth-skills-day.jpg" alt="World Youth Skills Day post" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>World Youth Skills Day</b><small>Creative · Social post</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-nexus-attair-logo.jpg" data-title="Nexus Attair logo on tote bag" data-meta="Creative · Logo mockup" style="--r:1.5">
+      <span class="im"><img src="images/design/creative-nexus-attair-logo.jpg" alt="Nexus Attair logo on a tote bag" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Nexus Attair logo on tote bag</b><small>Creative · Logo mockup</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-hiring-card.jpg" data-title="Hiring card" data-meta="Creative · Recruitment post" style="--r:1">
+      <span class="im"><img src="images/design/creative-hiring-card.jpg" alt="Hiring announcement card" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Hiring card</b><small>Creative · Recruitment post</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-awareness.jpg" data-title="Awareness post" data-meta="Creative · Illustration" style="--r:1.8">
+      <span class="im"><img src="images/design/creative-awareness.jpg" alt="Awareness illustration post" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Awareness post</b><small>Creative · Illustration</small></span></button>
+    <button class="shot" data-cat="creative" data-file="images/design/creative-visiting-card.jpg" data-title="Visiting card set" data-meta="Creative · Card design" style="--r:2.1">
+      <span class="im"><img src="images/design/creative-visiting-card.jpg" alt="Visiting card design set" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Visiting card set</b><small>Creative · Card design</small></span></button>
 
-    <!-- References: অনলাইনে দিলে দুজনের ফোন-ইমেইল সবার কাছে খোলা থাকবে; তাঁদের সম্মতি নিন -->
-    <section>
-      <h2><span class="ico"><svg><use href="#i-users"/></svg></span>References</h2>
-      <div class="refs">
-        <div class="ref">
-          <b>Mr. Muhammad Jabedul Islam</b>
-          <span class="ttl">General Manager</span>
-          <span class="org">Escape Bangladesh Limited</span>
-          <span>+880 1819 626399</span>
-          <span><a href="mailto:jabed@escapebd.com">jabed@escapebd.com</a></span>
-        </div>
-        <div class="ref">
-          <b>Mr. M. Aminul Islam Nazir</b>
-          <span class="ttl">Managing Director</span>
-          <span class="org">Assurance Maritime Bangladesh Limited</span>
-          <span>+880 1978 120289</span>
-          <span><a href="mailto:amin@assurance-bd.com">amin@assurance-bd.com</a></span>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- ===== Branding (Branding ফোল্ডারের ৩টি কাজ) ===== -->
+    <button class="shot" data-cat="branding" data-file="images/design/branding-post-hijri.jpg" data-title="Hijri New Year post" data-meta="Branding series · Bangla" style="--r:1">
+      <span class="im"><img src="images/design/branding-post-hijri.jpg" alt="Hijri New Year branding post" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Hijri New Year post</b><small>Branding series · Bangla</small></span></button>
+    <button class="shot" data-cat="branding" data-file="images/design/branding-post-ai.jpg" data-title="AI vs Illustrator post" data-meta="Branding series" style="--r:1.5">
+      <span class="im"><img src="images/design/branding-post-ai.jpg" alt="Artificial Intelligence vs Adobe Illustrator post" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>AI vs Illustrator post</b><small>Branding series</small></span></button>
+    <button class="shot" data-cat="branding" data-file="images/design/branding-cover.jpg" data-title="Cover banner" data-meta="Branding series · Cover" style="--r:1.8">
+      <span class="im"><img src="images/design/branding-cover.jpg" alt="Branding cover banner" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Cover banner</b><small>Branding series · Cover</small></span></button>
+
+    <!-- ===== Flyers & Banners (৩টি কাজ) ===== -->
+    <button class="shot" data-cat="flyer" data-file="images/design/flyer-crafting-elegance.jpg" data-title="Crafting Elegance flyer" data-meta="Flyer · Interior design" style="--r:.71">
+      <span class="im"><img src="images/design/flyer-crafting-elegance.jpg" alt="Crafting Elegance interior design flyer" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Crafting Elegance flyer</b><small>Flyer · Interior design</small></span></button>
+    <button class="shot" data-cat="flyer" data-file="images/design/banner-hifz-completion.jpg" data-title="Hifz completion ceremony banner" data-meta="Event banner · Arabic &amp; English" style="--r:2">
+      <span class="im"><img src="images/design/banner-hifz-completion.jpg" alt="Hifz completion ceremony banner" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Hifz completion ceremony banner</b><small>Event banner · Arabic &amp; English</small></span></button>
+    <button class="shot" data-cat="flyer" data-file="images/design/flyer-best-interior.jpg" data-title="The Best Interior Design flyer" data-meta="Flyer · Interior design" style="--r:.71">
+      <span class="im"><img src="images/design/flyer-best-interior.jpg" alt="The Best Interior Design flyer" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>The Best Interior Design flyer</b><small>Flyer · Interior design</small></span></button>
+
+    <!-- ===== Print & Packaging ===== -->
+    <button class="shot" data-cat="print" data-file="images/design/pack-almond-nut.jpg" data-video="videos/almond-nut-packaging.mp4" data-title="Almond nut packaging" data-meta="Packaging · Illustrator &amp; Pacdora 3D mockup" style="--r:1.78">
+      <span class="badge">▶ Video</span>
+      <span class="im"><img src="images/design/pack-almond-nut.jpg" alt="Almond nut packaging design" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Almond nut packaging</b><small>Packaging · 3D mockup</small></span></button>
+    <button class="shot" data-cat="print" data-file="images/design/print-nikah-card.jpg" data-title="Nikah invitation card" data-meta="Print · Invitation" style="--r:.75">
+      <span class="im"><img src="images/design/print-nikah-card.jpg" alt="Nikah invitation card" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Nikah invitation card</b><small>Print · Invitation</small></span></button>
+
+    <!-- ===== Company Profile (১টি; ছবি = PDF-এর প্রথম পাতা) ===== -->
+    <button class="shot" data-cat="profile" data-file="images/design/profile-company.jpg" data-pdf="profiles/company-profile.pdf" data-title="Company profile design" data-meta="Company profile · PDF" style="--r:.71">
+      <span class="badge">PDF</span>
+      <span class="im"><img src="images/design/profile-company.jpg" alt="Company profile design" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Company profile design</b><small>Company profile · PDF</small></span></button>
+
+    <!-- ===== UI & Motion ===== -->
+    <button class="shot" data-cat="motion" data-file="images/design/ui-dashboard.jpg" data-title="Dashboard UI design" data-meta="UI design" style="--r:1.4">
+      <span class="im"><img src="images/design/ui-dashboard.jpg" alt="Dashboard UI design" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Dashboard UI design</b><small>UI design</small></span></button>
+    <button class="shot" data-cat="motion" data-file="images/design/video-coxs-bazar.jpg" data-video="videos/coxs-bazar-tour.mp4" data-title="Cox's Bazar tour video" data-meta="Video editing" style="--r:1.78">
+      <span class="badge">▶ Video</span>
+      <span class="im"><img src="images/design/video-coxs-bazar.jpg" alt="Cox's Bazar tour video" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+      <span class="cap"><b>Cox's Bazar tour video</b><small>Video editing</small></span></button>
+  </div>
+  </div><!-- /d-browse -->
+
+  <!-- From Screen to Print: Design Printed ফোল্ডারের ১৩টি ছবি, ৯টি কাজে।
+       প্রথম কাজের class "lead" = বড় ঘর। একাধিক ছবি থাকলে data-more -->
+  <div class="p2p">
+    <div class="p2p-head">
+      <h3>From screen <em>to print</em></h3>
+      <p>Designs that left the screen: printed jerseys, banners, cards, flyers and laser engraving.</p>
+    </div>
+    <div class="p2p-row fade-up" data-group>
+      <button class="shot lead" data-file="images/design/print-jersey.jpg" data-more="images/design/print-jersey-back.jpg, images/design/print-jersey-blue.jpg" data-title="Team jerseys" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-jersey.jpg" alt="Printed team jersey" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Team jerseys</b><small>Designed → Printed</small></span></button>
+      <button class="shot" data-file="images/design/print-gate-banner.jpg" data-title="Gate banner" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-gate-banner.jpg" alt="Printed gate banner" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Gate banner</b><small>Designed → Printed</small></span></button>
+      <button class="shot" data-file="images/design/print-visiting-card.jpg" data-more="images/design/print-visiting-card-equipment.jpg" data-title="Visiting cards" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-visiting-card.jpg" alt="Printed visiting cards" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Visiting cards</b><small>Designed → Printed</small></span></button>
+      <button class="shot" data-file="images/design/print-flyer-equipment.jpg" data-more="images/design/print-flyer-equipment-back.jpg" data-title="Equipment flyer" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-flyer-equipment.jpg" alt="Printed equipment flyer" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Equipment flyer</b><small>Designed → Printed</small></span></button>
+      <button class="shot" data-file="images/design/print-laser-engraving.jpg" data-title="Laser-engraved cover" data-meta="Designed → Snapmaker laser">
+        <span class="im"><img src="images/design/print-laser-engraving.jpg" alt="Laser-engraved cover" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Laser-engraved cover</b><small>Designed → Laser</small></span></button>
+      <button class="shot" data-file="images/design/print-flyer.jpg" data-title="Printed flyer" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-flyer.jpg" alt="Printed flyer" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Printed flyer</b><small>Designed → Printed</small></span></button>
+      <button class="shot" data-file="images/design/print-hifz-banner.jpg" data-title="Hifz ceremony banner" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-hifz-banner.jpg" alt="Printed Hifz completion ceremony banner" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Hifz ceremony banner</b><small>Designed → Printed</small></span></button>
+      <button class="shot" data-file="images/design/print-islamic-banner.jpg" data-title="Islamic banner" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-islamic-banner.jpg" alt="Printed Islamic banner" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Islamic banner</b><small>Designed → Printed</small></span></button>
+      <button class="shot" data-file="images/design/print-spelling-bee.jpg" data-title="Spelling Bee banner" data-meta="Designed → Printed">
+        <span class="im"><img src="images/design/print-spelling-bee.jpg" alt="Printed Spelling Bee banner" loading="lazy" onerror="this.closest('.shot').classList.add('missing')"></span>
+        <span class="cap"><b>Spelling Bee banner</b><small>Designed → Printed</small></span></button>
+    </div>
+  </div>
+
+  <div class="d-more fade-up">
+    <div><b>Want to see more?</b><span>More design work is available on request.</span></div>
+    <a href="mailto:asifctg94@gmail.com?subject=Design%20portfolio%20request">Ask for the full portfolio ↗</a>
+  </div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Design preview">
+  <button class="lb-close" id="lb-close" aria-label="Close preview">✕</button>
+  <button class="lb-nav prev" id="lb-prev" aria-label="Previous">←</button>
+  <button class="lb-nav next" id="lb-next" aria-label="Next">→</button>
+  <div class="lb-media" id="lb-media"></div>
+  <div class="lb-cap"><b id="lb-title"></b><small id="lb-meta"></small><span id="lb-count"></span></div>
+  <a class="lb-pdf" id="lb-pdf" href="#" target="_blank" rel="noopener">Open full PDF ↗</a>
 </div>
 
-<script>
-/* দুই কলাম এক লাইনে শেষ করা।
-   লেখার মাপ কখনো বদলায় না, সেকশনের মাঝের --gap-ও না; শুধু ভেতরের ফাঁক:
-   বাম কলাম → --sgap (প্রতি পৃষ্ঠায় আলাদা)
-   পৃষ্ঠা ১ ডান → --bgap (bullet ফাঁক; দুই পৃষ্ঠায় একই থাকে)
-   পৃষ্ঠা ২ ডান → --rowpad (Projects টেবিল) */
-(function(){
-  const MM=96/25.4, root=document.documentElement, LIMIT=297-7;
-  const base={sgap:1.4,bgap:1.4,rowpad:1.5};
-  const lim={sgap:[0.6,6],bgap:[0.8,4],rowpad:[0.6,4]};
-  const setV=(el,n,v)=>el.style.setProperty('--'+n,v.toFixed(3)+'mm');
-  const bottom=col=>(col.lastElementChild.getBoundingClientRect().bottom-col.closest('.page').getBoundingClientRect().top)/MM;
-  /* var-এর সবচেয়ে বড় মান খোঁজে, যাতে কলামের নিচ target ছাড়িয়ে না যায় */
-  function fit(col,el,n,target){
-    let lo=lim[n][0],hi=lim[n][1];
-    setV(el,n,lo); if(bottom(col)>target+0.05)return 'over';
-    setV(el,n,hi); if(bottom(col)<=target)return 'short';
-    for(let i=0;i<24;i++){const m=(lo+hi)/2;setV(el,n,m);if(bottom(col)<=target)lo=m;else hi=m}
-    setV(el,n,lo);return 'ok';
-  }
-  function run(){
-    const out=[];
-    setV(root,'bgap',base.bgap);
-    document.querySelectorAll('.page').forEach((pg,i)=>{
-      const side=pg.querySelector('.side'),main=pg.querySelector('.main');
-      const mv=i===0?'bgap':'rowpad',mel=i===0?root:main;
-      setV(side,'sgap',base.sgap); if(i>0)setV(main,'rowpad',base.rowpad);
-      let warn='';
-      if(bottom(side)>LIMIT&&fit(side,side,'sgap',LIMIT)==='over')warn=' ⚠ left column too long';
-      if(bottom(main)>LIMIT&&fit(main,mel,mv,LIMIT)==='over')warn=' ⚠ right column too long';
-      const s=bottom(side),m=bottom(main);
-      let r='ok';
-      if(Math.abs(s-m)>0.2) r=s<m?fit(side,side,'sgap',m):fit(main,mel,mv,s);
-      const d=Math.abs(bottom(side)-bottom(main));
-      out.push('Page '+(i+1)+(warn||(d<=0.3?' ✓ aligned':' ⚠ off by '+d.toFixed(1)+' mm'+(r==='short'?' (needs more content)':''))));
-    });
-    const f=document.getElementById('fit'); if(f)f.textContent='Layout check: '+out.join(' · ');
-  }
-  (document.fonts?document.fonts.ready:Promise.resolve()).then(run);
-  window.addEventListener('load',run);
-  window.addEventListener('beforeprint',run);
-})();
-</script>
+<!-- CV PREVIEW: ভেতরে লাইভ CV পাতা দেখায়; Download PDF বাটন portfolio repo-র PDF নামায় -->
+<div class="cvm" id="cvm" role="dialog" aria-modal="true" aria-label="CV preview">
+  <div class="cvm-box">
+    <div class="cvm-bar">
+      <b>Md. Asifur Rahman · CV</b>
+      <div class="cvm-act">
+        <a class="cvm-full" href="https://asifur-rahman-ai.github.io/CV/" target="_blank" rel="noopener">Full page ↗</a>
+        <a class="cvm-dl" href="cv-md-asifur-rahman.pdf" download>Download PDF ↓</a>
+        <button class="cvm-x" id="cvm-close" aria-label="Close CV preview">✕</button>
+      </div>
+    </div>
+    <div class="cvm-view" id="cvm-view"><div class="cvm-load" id="cvm-load">Loading CV…</div></div>
+  </div>
+</div>
+
+<!-- SKILLS — ring: style="--lvl:80" (0–100), ভেতরের শব্দ মিলিয়ে বদলান -->
+<section id="skills">
+<div class="wrap">
+  <div class="label">What I Do</div>
+  <h2>Core <em>Skills</em></h2>
+  <div class="grid3">
+    <div class="card sk fade-up">
+      <div class="sk-top"><h3>Agentic AI &amp; Automation</h3><div class="ring" style="--lvl:80"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Adv.</span></div></div>
+      <p>Agentic AI workflows and AI-assisted development that turn office processes into working tools.</p>
+      <div class="tags"><span class="tag">AI agents</span><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Copilot</span><span class="tag">Apps Script</span></div>
+      <div class="proof"><b>6</b><span>internal tools built for office workflows</span></div></div>
+    <div class="card sk fade-up">
+      <div class="sk-top"><h3>Web Development</h3><div class="ring" style="--lvl:80"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Adv.</span></div></div>
+      <p>WordPress sites and single-page web apps, from design to deployment.</p>
+      <div class="tags"><span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">Elementor</span><span class="tag">ACF</span></div>
+      <div class="proof"><b>3+1</b><span>websites and a web app delivered at Escape Bangladesh</span></div></div>
+    <div class="card sk fade-up">
+      <div class="sk-top"><h3>IT Infrastructure</h3><div class="ring" style="--lvl:80"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Adv.</span></div></div>
+      <p>Email, hosting and domain administration, plus daily IT support.</p>
+      <div class="tags"><span class="tag">Microsoft 365</span><span class="tag">cPanel</span><span class="tag">DNS</span><span class="tag">SSL</span></div>
+      <div class="proof"><b>75K+</b><span>messages migrated to Microsoft 365</span></div></div>
+    <div class="card sk fade-up">
+      <div class="sk-top"><h3>Web Security</h3><div class="ring" style="--lvl:60"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Inter&shy;mediate</span></div></div>
+      <p>Spam and malware cleanup, incident response and site hardening.</p>
+      <div class="tags"><span class="tag">Audit</span><span class="tag">Hardening</span><span class="tag">Backup</span></div>
+      <div class="proof"><b>50+</b><span>hidden spam links found and removed</span></div></div>
+    <div class="card sk fade-up">
+      <div class="sk-top"><h3>Data</h3><div class="ring" style="--lvl:60"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Inter&shy;mediate</span></div></div>
+      <p>Cleaning, standardising and analysing business records.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Sheets</span><span class="tag">MySQL</span></div>
+      <div class="proof"><b>590+</b><span>vessel datasets cleaned and standardised</span></div></div>
+    <div class="card sk fade-up">
+      <div class="sk-top"><h3>Design &amp; SEO</h3><div class="ring" style="--lvl:80"><svg class="arc" viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="16"/><circle class="fg" cx="18" cy="18" r="16" pathLength="100"/></svg><span>Adv.</span></div></div>
+      <p>Brand assets, print design and search visibility.</p>
+      <div class="tags"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Canva</span><span class="tag">SEO</span></div>
+      <div class="proof"><b>27</b><span>flyers designed at Escape Bangladesh</span></div></div>
+  </div>
+  <p class="sk-note">Rings show a self-assessed level. The number under each card is from real work.</p>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="alt">
+<div class="wrap">
+  <div class="label">Career</div>
+  <h2>Work <em>Experience</em></h2>
+
+  <!-- Career timeline: ২০১৭ = 0%, প্রতি বছর = 10% -->
+  <div class="card tlw fade-up">
+    <div class="tl-head"><div class="label">Timeline · 2017 – 2026</div><div class="tl-note">Work, degrees and training at a glance</div></div>
+    <div class="tl-scroll"><div class="tl">
+      <div class="tl-row"><b>Work</b><div class="tl-track">
+        <span class="tl-bar alt" style="left:49.2%;width:10.8%">Escape</span>
+        <span class="tl-bar now" style="left:60%;width:38.8%">Assurance Maritime →</span>
+      </div></div>
+      <div class="tl-row"><b>Education</b><div class="tl-track">
+        <span class="tl-dot" style="left:15%"><i>B.Engg CSE</i></span>
+        <span class="tl-dot" style="left:45%"><i>M.Engg CSE</i></span>
+      </div></div>
+      <div class="tl-row"><b>Training</b><div class="tl-track">
+        <span class="tl-dot" style="left:5%"><i>Java · BCC</i></span>
+        <span class="tl-dot" style="left:45%"><i>CCNA course</i></span>
+        <span class="tl-dot l" style="left:85%"><i>AI · Helsinki, IBM</i></span>
+      </div></div>
+      <div class="tl-axis"><i></i><div>
+        <span style="left:0%">2017</span><span style="left:10%">2018</span><span style="left:20%">2019</span><span style="left:30%">2020</span><span style="left:40%">2021</span>
+        <span style="left:50%">2022</span><span style="left:60%">2023</span><span style="left:70%">2024</span><span style="left:80%">2025</span><span style="left:90%">2026</span>
+      </div></div>
+    </div></div>
+  </div>
+
+  <!-- প্রতিটি bullet: শুরুর মূল শব্দ <b>…</b> বোল্ড, বাকিটা নরমাল -->
+  <div class="card exp fade-up">
+    <div>
+      <div class="when">JAN 2023 — PRESENT</div>
+      <div class="co">Assurance Maritime Bangladesh Limited</div>
+      <div class="ro">IT Systems &amp; Automation Specialist · Chattogram</div>
+      <div class="pr">Promoted Nov 2026<br>Previously Digital Executive<br>Jan 2023 – Oct 2026</div>
+    </div>
+    <ul>
+      <li><b>IT and digital functions</b> owned end to end as the company's sole IT person, reporting directly to the Managing Director.</li>
+      <li><b>Email migration</b> from cPanel to Microsoft 365, planned and run in-house.</li>
+      <li><b>Six internal tools</b> built from scratch, including leave management and a legal document generator.</li>
+      <li><b>Corporate WordPress site</b> redesigned and maintained; domain, hosting, DNS and SSL managed.</li>
+      <li><b>Security incident</b> resolved: 50+ hidden spam links removed, site audited and hardened.</li>
+      <li><b>590+ vessel datasets</b> cleaned and standardised.</li>
+      <li><b>Brand and documents</b> produced: brochures, certificates, client guides and a policy handbook.</li>
+    </ul>
+  </div>
+  <div class="card exp fade-up">
+    <div>
+      <div class="when">DEC 2021 — DEC 2022</div>
+      <div class="co">Escape Bangladesh Limited</div>
+      <div class="ro">Jr. Website Developer &amp; Designer · Chattogram</div>
+    </div>
+    <ul>
+      <li><b>3 websites and 1 custom web application</b> delivered from scratch.</li>
+      <li><b>27 flyers</b>, animation videos, company profiles and full branding kits.</li>
+      <li><b>Content marketing and SEO</b>, with data-driven reporting.</li>
+      <li><b>IT support</b> for network, hardware and software; user guides and handover presentations.</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<div class="wrap">
+  <div class="label">Background</div>
+  <h2>Education &amp; <em>Training</em></h2>
+  <div class="rows">
+    <div class="card fade-up">
+      <ul class="row-list">
+        <li><div><b>M.Engg, Computer Science &amp; Engineering</b><small>Port City International University</small></div><span class="yr">2021</span></li>
+        <li><div><b>B.Engg, Computer Science &amp; Engineering</b><small>Premier University, Chattogram</small></div><span class="yr">2018</span></li>
+        <li><div><b>HSC, Science</b><small>BEPZA Public School &amp; College</small></div><span class="yr">2012</span></li>
+        <li><div><b>SSC, Science</b><small>Chattogram Port Authority High School &amp; College</small></div><span class="yr">2010</span></li>
+      </ul>
+    </div>
+    <div class="card fade-up">
+      <ul class="row-list">
+        <li><div><b>Elements of AI</b><small>University of Helsinki &amp; MinnaLearn · 2 ECTS</small></div><span class="yr">2025</span></li>
+        <li><div><b>Exploring Artificial Intelligence</b><small>IBM SkillsBuild</small></div><span class="yr">2025</span></li>
+        <li><div><b>CCNA course</b><small>BITM, People Tech, Dhaka · 4 months</small></div><span class="yr">2021</span></li>
+        <li><div><b>Top-Up IT Training (Java)</b><small>ICT Division, Bangladesh Computer Council · 6 months</small></div><span class="yr">2017</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="alt">
+<div class="wrap">
+  <div class="label">Get In Touch</div>
+  <h2>Let's build <em>together</em></h2>
+  <div class="contact">
+    <div class="c-big fade-up">
+      <h3>Have a role or a project in mind?</h3>
+      <p>Websites, internal tools, email and hosting, or brand design. I usually reply within a day.</p>
+      <p style="margin-top:20px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.06em">Chattogram, Bangladesh</p>
+      <!-- ভাষার bar: style="--w:75%" -->
+      <div class="langs">
+        <div><div class="lang-row"><span>Bengali</span><small>Native</small></div><div class="lang-bar"><i style="--w:100%"></i></div></div>
+        <div><div class="lang-row"><span>English</span><small>Professional</small></div><div class="lang-bar"><i style="--w:75%"></i></div></div>
+      </div>
+    </div>
+    <div class="c-links fade-up">
+      <a class="cl" href="mailto:asifctg94@gmail.com"><div><small>Email</small><span>asifctg94@gmail.com</span></div><i>↗</i></a>
+      <!-- WhatsApp: wa.me/ এর পরে দেশের কোডসহ নম্বর, + বা ফাঁকা ছাড়া -->
+      <a class="cl" href="https://wa.me/8801821304262" target="_blank" rel="noopener"><div><small>WhatsApp</small><span>+880 1821 304 262</span></div><i>↗</i></a>
+      <a class="cl" href="https://www.linkedin.com/in/md-asifur-rahman-a955a9197/" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>md-asifur-rahman</span></div><i>↗</i></a>
+      <a class="cl" href="https://github.com/asifur-rahman-ai" target="_blank" rel="noopener"><div><small>GitHub</small><span>asifur-rahman-ai</span></div><i>↗</i></a>
+      <!-- data-cv: চাপলে CV প্রিভিউ খোলে -->
+      <a class="cl" href="cv-md-asifur-rahman.pdf" data-cv><div><small>CV</small><span>View CV (2 pages)</span></div><i>↗</i></a>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div>AR.</div>
+  <div>© 2026 Md. Asifur Rahman · Chattogram, Bangladesh</div>
+</footer>
 
 <script>
-/* সব ওয়েব লিংক (http/https) নতুন ট্যাবে খোলে: portfolio-র প্রিভিউর ভেতরেও, CV পাতাতেও।
-   mailto লিংক আগের মতোই থাকে (মেইল অ্যাপ খোলে)। পরে নতুন লিংক যোগ করলেও এটা আপনাআপনি ধরবে। */
-document.querySelectorAll('a[href^="http"]').forEach(a=>{a.target='_blank';a.rel='noopener noreferrer';});
-</script>
+/* Scroll reveal */
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
+/* Active nav link */
+const secs=document.querySelectorAll('section[id]'),links=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let c='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-140)c=s.id});
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c));
+},{passive:true});
+
+/* Mobile menu */
+const burger=document.querySelector('.hamburger');
+burger.addEventListener('click',()=>{
+  const open=document.body.classList.toggle('menu-open');
+  burger.setAttribute('aria-expanded',open);
+});
+document.querySelectorAll('.mobile-overlay a').forEach(a=>a.addEventListener('click',()=>{
+  document.body.classList.remove('menu-open');
+  burger.setAttribute('aria-expanded','false');
+}));
+
+/* Project কার্ড: মাথায় ছোট ব্রাউজার-বার (ঠিকানা href থেকে) + "● Live";
+   প্রতিটি বাটনের অ্যানিমেশন একটু আগে-পরে শুরু হয় (--d), যাতে একসাথে না নড়ে */
+document.querySelectorAll('a.proj').forEach((a,i)=>{
+  let u;try{u=new URL(a.href)}catch(e){return}
+  const bar=document.createElement('span');bar.className='win';bar.setAttribute('aria-hidden','true');
+  bar.innerHTML='<i></i><i></i><i></i><span class="url"></span><span class="live"><span class="pulse"></span>Live</span>';
+  bar.querySelector('.url').textContent=(u.host+u.pathname).replace(/\/$/,'');
+  a.prepend(bar);
+  a.style.setProperty('--d',((i%3)*0.5)+'s');
+});
+
+/* একটি কাজের সব ছবি: data-file + data-more (কমা দিয়ে আলাদা) */
+const imgsOf=s=>[s.dataset.file,...(s.dataset.more?s.dataset.more.split(',').map(x=>x.trim()).filter(Boolean):[])];
+
+/* Design: প্রতিটি ঘরে ফাইলের নাম (ছবি না পেলে দেখায়); একাধিক ছবিতে "N photos" ব্যাজ;
+   গ্যালারিতে আসল ছবির অনুপাত মেপে --r বসায় (খুব সরু/চওড়া হলে সীমার ভেতরে রাখে) */
+document.querySelectorAll('.shot').forEach(s=>{
+  const im=s.querySelector('.im'),img=im&&im.querySelector('img');
+  if(!img)return;
+  im.dataset.file=s.dataset.file;
+  const n=imgsOf(s).length;
+  if(n>1)s.insertAdjacentHTML('afterbegin','<span class="badge">'+n+' photos</span>');
+  if(!s.closest('.gallery'))return;
+  const fit=()=>{
+    if(!img.naturalWidth)return;
+    const r=Math.min(2.4,Math.max(.55,img.naturalWidth/img.naturalHeight));
+    s.style.setProperty('--r',r.toFixed(3));
+  };
+  if(img.complete)fit();else img.addEventListener('load',fit);
+});
+
+/* Design: filter + প্রতিটি বাটনে সংখ্যা (কাজ না থাকলে বাটন লুকায়) */
+const mShots=document.querySelectorAll('.gallery .shot'),fbtns=document.querySelectorAll('.fbtn'),
+      fbar=document.querySelector('.filters'),gal=document.querySelector('.gallery');
+fbtns.forEach(b=>{
+  const f=b.dataset.f;
+  const n=f==='all'?mShots.length:[...mShots].filter(s=>s.dataset.cat===f).length;
+  b.insertAdjacentHTML('beforeend',' <span class="n">'+n+'</span>');
+  if(f!=='all'&&n===0)b.hidden=true;
+});
+fbtns.forEach(b=>b.addEventListener('click',()=>{
+  fbtns.forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});
+  const f=b.dataset.f;
+  mShots.forEach(s=>s.classList.toggle('hide',f!=='all'&&s.dataset.cat!==f));
+  /* নিচে থাকলে গ্যালারির শুরুতে ফিরে যায় */
+  const top=parseFloat(getComputedStyle(fbar).top)||0;
+  const y=gal.getBoundingClientRect().top+window.scrollY-fbar.offsetHeight-top-8;
+  if(window.scrollY>y)window.scrollTo({top:y,behavior:'smooth'});
+  /* সারি পাশে স্ক্রল হলে চাপা বাটন মাঝখানে আনে */
+  fbar.scrollTo({left:b.offsetLeft-(fbar.clientWidth-b.offsetWidth)/2,behavior:'smooth'});
+}));
+
+/* Design: উপরের সংখ্যা */
+const setN=(id,n)=>{const el=document.getElementById(id);if(el)el.textContent=n};
+setN('d-total',document.querySelectorAll('.d-feat .shot, .gallery .shot').length);
+setN('d-cats',[...fbtns].filter(b=>b.dataset.f!=='all'&&!b.hidden).length);
+setN('d-print',document.querySelectorAll('.p2p .shot').length);
+
+/* BACK বাটনে প্রিভিউ বন্ধ (মোবাইলের Back, iPhone-এর swipe-back, ব্রাউজারের ← সবই):
+   প্রিভিউ খুললে history-তে একটি ধাপ যোগ হয়। Back চাপলে সেই ধাপ সরে গিয়ে শুধু প্রিভিউ বন্ধ হয়,
+   পাতা ছেড়ে যায় না। ✕ / Esc / বাইরে চাপলে ধাপটিও সরানো হয়, যাতে পরে Back এক চাপেই আগের পাতায় যায়। */
+let modalPushed=false;
+function pushModal(){if(!modalPushed){history.pushState({preview:true},'');modalPushed=true}}
+function popModal(){if(modalPushed){modalPushed=false;history.back()}}
+
+/* Lightbox: ছবি, ভিডিও (mp4 বা YouTube), PDF।
+   ← → আগে একই কাজের সব ছবি দেখায়, তারপর পরের কাজে যায় */
+const lb=document.getElementById('lb'),lbMedia=document.getElementById('lb-media'),
+      lbTitle=document.getElementById('lb-title'),lbMeta=document.getElementById('lb-meta'),
+      lbCount=document.getElementById('lb-count'),lbPdf=document.getElementById('lb-pdf'),
+      lbClose=document.getElementById('lb-close'),lbPrev=document.getElementById('lb-prev'),lbNext=document.getElementById('lb-next');
+let shots=[],slides=[],si=0,lastShot=null;
+function showItem(){
+  const {s,src,i,n}=slides[si],v=i===0?s.dataset.video:null;
+  lbMedia.innerHTML='';
+  let el;
+  if(v&&/\.(mp4|webm)$/i.test(v)){
+    el=document.createElement('video');el.src=v;el.controls=true;el.autoplay=true;el.playsInline=true;el.poster=src;
+  }else if(v){
+    el=document.createElement('iframe');el.src=v;el.title=s.dataset.title;el.allow='autoplay; encrypted-media; picture-in-picture';el.allowFullscreen=true;
+  }else{
+    el=document.createElement('img');el.src=src;el.alt=s.dataset.title;
+    el.onerror=()=>{lbMedia.innerHTML='';const p=document.createElement('p');p.className='lb-miss';p.textContent='File not found: '+src;lbMedia.appendChild(p)};
+  }
+  lbMedia.appendChild(el);
+  lbTitle.textContent=s.dataset.title;
+  lbMeta.textContent=s.dataset.meta||'';
+  const wi=shots.indexOf(s);
+  lbCount.textContent=(shots.length>1?(wi+1)+' / '+shots.length:'')+(n>1?(shots.length>1?' · ':'')+'photo '+(i+1)+' / '+n:'');
+  if(s.dataset.pdf){lbPdf.href=s.dataset.pdf;lbPdf.style.display='inline-block'}else{lbPdf.style.display='none'}
+  lbPrev.hidden=lbNext.hidden=slides.length<2;
+}
+function openLb(s){
+  shots=[...s.closest('[data-group]').querySelectorAll('.shot:not(.hide):not(.missing)')];
+  slides=[];
+  shots.forEach(sh=>{const list=imgsOf(sh);list.forEach((src,i)=>slides.push({s:sh,src,i,n:list.length}))});
+  si=slides.findIndex(x=>x.s===s);lastShot=s;
+  showItem();lb.classList.add('open');document.body.style.overflow='hidden';lbClose.focus();
+  pushModal();
+}
+/* fromHistory=true মানে Back বাটন থেকে বন্ধ হচ্ছে (তখন history আর পেছানোর দরকার নেই) */
+function closeLb(fromHistory){
+  if(!lb.classList.contains('open'))return;
+  lb.classList.remove('open');lbMedia.innerHTML='';document.body.style.overflow='';
+  if(lastShot)lastShot.focus();
+  if(fromHistory!==true)popModal();
+}
+function step(d){si=(si+d+slides.length)%slides.length;showItem()}
+document.querySelectorAll('.shot').forEach(s=>s.addEventListener('click',()=>{if(!s.classList.contains('missing'))openLb(s)}));
+lbPrev.addEventListener('click',()=>step(-1));
+lbNext.addEventListener('click',()=>step(1));
+lbClose.addEventListener('click',()=>closeLb());
+lb.addEventListener('click',e=>{if(e.target===lb||e.target===lbMedia)closeLb()});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  else if(e.key==='ArrowLeft'&&slides.length>1)step(-1);
+  else if(e.key==='ArrowRight'&&slides.length>1)step(1);
+});
+
+/* CV PREVIEW: data-cv লিংকে চাপলে খোলে। ভেতরে লাইভ CV পাতা (CV repo) iframe-এ,
+   CV_W প্রস্থে বানিয়ে পর্দার মাপে ছোট করা হয়; প্রথমবার খুললে একবারই লোড হয়।
+   একই সাইট (github.io) হলে CV পাতার "Save as PDF" toolbar লুকায় ও আসল উচ্চতা মাপে */
+const CV_URL='https://asifur-rahman-ai.github.io/CV/',CV_W=860;
+const cvm=document.getElementById('cvm'),cvView=document.getElementById('cvm-view'),
+      cvLoad=document.getElementById('cvm-load'),cvClose=document.getElementById('cvm-close');
+let cvFrame=null,cvSizer=null,cvScale=null,cvH=2400,lastCvBtn=null;
+function cvFit(){
+  if(!cvSizer)return;
+  const s=Math.min(1,cvView.clientWidth/CV_W);
+  cvScale.style.transform='scale('+s+')';
+  cvSizer.style.width=(CV_W*s)+'px';
+  cvSizer.style.height=(cvH*s)+'px';
+}
+function cvMeasure(){
+  try{
+    const d=cvFrame.contentDocument;
+    if(!d.getElementById('cv-embed-style')){
+      const st=d.createElement('style');st.id='cv-embed-style';
+      st.textContent='.toolbar{display:none!important}html,body{overflow:hidden!important}body{padding-bottom:8mm}';
+      d.head.appendChild(st);
+    }
+    cvH=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight);
+  }catch(e){/* অন্য সাইট থেকে খুললে মাপা যায় না; আগের উচ্চতাই থাকে */}
+  cvFrame.style.height=cvH+'px';
+  cvFit();
+}
+function openCv(btn){
+  lastCvBtn=btn;
+  if(!cvFrame){
+    cvSizer=document.createElement('div');cvSizer.className='cvm-sizer';
+    cvScale=document.createElement('div');cvScale.className='cvm-scale';
+    cvFrame=document.createElement('iframe');
+    cvFrame.src=CV_URL;cvFrame.title='CV of Md. Asifur Rahman';
+    cvFrame.style.height=cvH+'px';
+    cvFrame.addEventListener('load',()=>{cvMeasure();setTimeout(cvMeasure,800);if(cvLoad)cvLoad.remove()});
+    cvScale.appendChild(cvFrame);cvSizer.appendChild(cvScale);cvView.appendChild(cvSizer);
+  }
+  cvm.classList.add('open');document.body.style.overflow='hidden';
+  cvView.scrollTop=0;cvFit();cvClose.focus();
+  pushModal();
+}
+function closeCv(fromHistory){
+  if(!cvm.classList.contains('open'))return;
+  cvm.classList.remove('open');document.body.style.overflow='';
+  if(lastCvBtn)lastCvBtn.focus();
+  if(fromHistory!==true)popModal();
+}
+document.querySelectorAll('[data-cv]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openCv(a)}));
+cvClose.addEventListener('click',()=>closeCv());
+cvm.addEventListener('click',e=>{if(e.target===cvm)closeCv()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cvm.classList.contains('open'))closeCv()});
+window.addEventListener('resize',()=>{if(cvm.classList.contains('open'))cvFit()});
+
+/* Back বাটন চাপলে: খোলা প্রিভিউ বন্ধ হয়, পাতা একই জায়গায় থাকে */
+window.addEventListener('popstate',()=>{
+  if(!modalPushed)return;
+  modalPushed=false;
+  closeLb(true);
+  closeCv(true);
+});
+</script>
 </body>
 </html>
