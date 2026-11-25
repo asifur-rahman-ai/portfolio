@@ -343,6 +343,13 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .cl small{display:block;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--green);letter-spacing:.1em;text-transform:uppercase}
 .cl span{font-size:.92rem;color:var(--text)}
 .cl i{font-style:normal;color:var(--green)}
+/* ফোন কার্ড: পুরো কার্ড লিংক নয়; ডানদিকে Call ও WhatsApp দুটো আলাদা বাটন
+   জায়গা কম হলে (ছোট মোবাইল) বাটন দুটো নম্বরের নিচে নেমে যায় */
+.cl.ph{flex-wrap:wrap}
+.cl.ph:hover{transform:none;border-color:var(--line)}
+.ph-acts{display:flex;gap:6px;flex-shrink:0}
+.ph-acts a{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:8px 13px;border-radius:var(--pill);border:1px solid rgba(158,232,107,.38);background:rgba(158,232,107,.08);color:var(--green);transition:.2s}
+.ph-acts a:hover{background:var(--green);color:var(--darkest);border-color:var(--green)}
 footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:.66rem;color:var(--muted)}
 
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
@@ -886,8 +893,8 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
     </div>
     <div class="c-links fade-up">
       <a class="cl" href="mailto:asifctg94@gmail.com"><div><small>Email</small><span>asifctg94@gmail.com</span></div><i>↗</i></a>
-      <!-- WhatsApp: wa.me/ এর পরে দেশের কোডসহ নম্বর, + বা ফাঁকা ছাড়া -->
-      <a class="cl" href="https://wa.me/8801821304262" target="_blank" rel="noopener"><div><small>WhatsApp</small><span>+880 1821 304 262</span></div><i>↗</i></a>
+      <!-- Mobile · WhatsApp: একই নম্বর; Call = ফোনে কল (tel:), WhatsApp = wa.me (দেশের কোডসহ, + বা ফাঁকা ছাড়া) -->
+      <div class="cl ph"><div><small>Mobile · WhatsApp</small><span>+880 1821 304262</span></div><div class="ph-acts"><a href="tel:+8801821304262">Call</a><a href="https://wa.me/8801821304262" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
       <a class="cl" href="https://www.linkedin.com/in/md-asifur-rahman-a955a9197/" target="_blank" rel="noopener"><div><small>LinkedIn</small><span>md-asifur-rahman</span></div><i>↗</i></a>
       <a class="cl" href="https://github.com/asifur-rahman-ai" target="_blank" rel="noopener"><div><small>GitHub</small><span>asifur-rahman-ai</span></div><i>↗</i></a>
       <!-- data-cv: চাপলে CV প্রিভিউ খোলে -->
