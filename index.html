@@ -120,8 +120,8 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 
 /* PROJECTS */
 .sub{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:32px 0 14px}
-/* ৩টা করে সমান মাপের কার্ড; শেষ সারিতে কম থাকলে সেগুলো মাঝখানে বসে (কার্ডের মাপ বদলায় না) */
-.grid3{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+/* ৩টা করে সমান মাপের কার্ড; শেষ সারিতে কম থাকলে বাঁদিক থেকে বসে (কার্ডের মাপ বদলায় না) */
+.grid3{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:16px}
 .grid3>*{flex:0 0 calc((100% - 32px)/3);min-width:0}
 .proj{display:flex;flex-direction:column;text-decoration:none;overflow:hidden;cursor:pointer}
 .proj h3{font-size:1.08rem;font-weight:700;color:var(--white);margin:12px 0 6px}
@@ -363,7 +363,7 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
 @media(max-width:1024px){
   .hero-grid{grid-template-columns:1fr 1fr}
   .cta{grid-column:1/3}
-  /* ট্যাবলেটে ২টা করে কার্ড; বিজোড় হলে শেষটা মাঝখানে */
+  /* ট্যাবলেটে ২টা করে কার্ড; বিজোড় হলে শেষটা বাঁদিকে */
   .grid3>*{flex-basis:calc((100% - 16px)/2)}
   .gallery{--rh:190px}
   .p2p-row{grid-template-columns:repeat(3,1fr)}
