@@ -316,6 +316,9 @@ h1 span{-webkit-text-stroke:2px var(--green);color:transparent}
 .exp li{font-size:.9rem;color:var(--dim);padding-left:20px;position:relative}
 .exp li::before{content:'→';position:absolute;left:0;color:var(--green)}
 .exp li b{color:var(--white);font-weight:700}
+/* bullet-এর ভেতরের লিংক (যেমন assurance-bd.com): সবুজ, নিচে হালকা দাগ */
+.exp li a{color:var(--green);text-decoration:none;border-bottom:1px solid rgba(158,232,107,.35);transition:border-color .2s}
+.exp li a:hover{border-color:var(--green)}
 
 /* EDUCATION */
 .rows{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -507,6 +510,15 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
       </div>
       <a class="go" href="https://asifur-rahman-ai.github.io/AI-assisted-maritime-case-register/" target="_blank" rel="noopener">Open live demo <span class="arr">↗</span></a>
     </div>
+  </div>
+
+  <!-- কোম্পানির লাইভ ওয়েবসাইট (demo নয়): অন্য project কার্ডের মতোই; ব্রাউজার-বারে ঠিকানা স্ক্রিপ্ট নিজে বসায়।
+       শুধু যে কাজগুলো নিজে করা হয়েছে সেগুলোই লেখা -->
+  <div class="sub">Company website · live</div>
+  <div class="grid3">
+    <a class="card proj fade-up" href="https://assurance-bd.com/" target="_blank" rel="noopener">
+      <span class="tag">WordPress · Elementor · SEO</span><h3>Assurance Maritime website</h3>
+      <p>Refreshed the company's live site: updated layouts and fonts, stats counters, a client logo wall, a People section, SEO meta titles and descriptions, and better mobile layouts.</p><span class="go">Visit live site <span class="arr">↗</span></span></a>
   </div>
 
   <!-- প্রতিটি কার্ডের মাথায় ব্রাউজার-বার স্ক্রিপ্ট নিজে বসায় (href থেকে ঠিকানা নিয়ে) -->
@@ -827,7 +839,7 @@ footer{border-top:1px solid var(--line);padding:24px 28px;max-width:1180px;margi
       <li><b>IT and digital functions</b> owned end to end as the company's sole IT person, reporting directly to the Managing Director.</li>
       <li><b>Email migration</b> from cPanel to Microsoft 365, planned and run in-house.</li>
       <li><b>Six internal tools</b> built from scratch, including leave management and a legal document generator.</li>
-      <li><b>Corporate WordPress site</b> redesigned and maintained; domain, hosting, DNS and SSL managed.</li>
+      <li><b>Corporate website</b> (<a href="https://assurance-bd.com/" target="_blank" rel="noopener">assurance-bd.com</a>) refreshed: layouts, fonts, stats counters, client logos, a People section, SEO meta and mobile layouts; domain, hosting, DNS and SSL managed.</li>
       <li><b>Security incident</b> resolved: 50+ hidden spam links removed, site audited and hardened.</li>
       <li><b>590+ vessel datasets</b> cleaned and standardised.</li>
       <li><b>Brand and documents</b> produced: brochures, certificates, client guides and a policy handbook.</li>
